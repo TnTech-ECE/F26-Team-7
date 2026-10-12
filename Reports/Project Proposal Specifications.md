@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Modern manufacturing processes require precise control, consistant operating conditions, and reliable monitering systems to maintain product quality and efficiency. These requirements are espescially important in industries such as aerospace and defence, where defects can have dire consequences. Flexial Corporation specializes in manufacturing precision metal bellows, accumulators, and flexible metal hose assemblies for aerospace, defense, and other industrial applications. 
+Modern manufacturing processes require precise control, consistant operating conditions, and reliable monitering systems to maintain product quality and efficiency. These requirements are espescially important in industries such as aerospace and defence, where defects can have dire consequences. Flexial Corporation specializes in manufacturing precision metal bellows, accumulators, and flexible metal hose assemblies for aerospace, defense, and other industrial applications.
 The company also performs precision cleaning operations requiring strict cleanliness standards [1]. Maintaning consistent processing conditions throughout these operations is essential to producing reliable components that meet customer expectations.
 
 Modern manufacturing processes demand precise control, consistent operating conditions, and reliable monitoring systems to ensure product quality and operational efficiency. These requirements are particularly critical in sectors such as aerospace and defense, where manufacturing defects may result in severe consequences. Flexial Corporation manufactures precision metal bellows, accumulators, and flexible metal hose assemblies for aerospace, defense, and other industrial applications. The company also conducts precision cleaning operations for components that must meet stringent cleanliness standards [1]. Consistent processing conditions throughout these operations are essential for producing reliable components that fulfill customer requirements.
@@ -14,6 +14,7 @@ This proposal outlines the background of the manufacturing process and identifie
 ## Formulating the Problem
 
 ### Background
+
 Flexial Corporation produces specialized metal components for applications that demand high levels of precision, reliability, and cleanliness. The company's manufacturing capabilities encompass precision machining, welding, testing, and precision cleaning. These processes enable the production of components for aerospace, medical, defense, and other demanding industries [1]. Given that finished products may be deployed in critical applications, it is essential to maintain manufacturing conditions that ensure components meet stringent quality standards.
 
 This project focuses on a manufacturing operation that utilizes multiple chemical processing tanks and associated equipment requiring comprehensive monitoring and control. Key process variables include temperature, pH, chemical concentration, and total dissolved solids (TDS). Monitoring these parameters is critical for detecting changes in solution conditions that could impact processing consistency. Beyond the chemical tanks, the operation also incorporates a drying oven that necessitates temperature monitoring and control. The system must further accommodate equipment such as heaters, valves, stack lights, and operator input devices.
@@ -41,7 +42,7 @@ F3PC has consulted with the client and has developed preliminary specifications 
 
 - The system shall measure and read values from the hypersonic preclean and cleaning tanks, such as pH, concentration, TDS, and the temperature of the tanks, as well as time in the tanks. 
 
-- The system shall measure the temperature of the drying ovens and the time a part is in the ovens.
+-The system shall measure the temperature of the drying ovens and the time a part is in the ovens.
 
 - The system shall measure and read values similar to the cleaning tanks for the passivation tanks
 
@@ -141,23 +142,22 @@ Together, Ron Scarlett and Mike Abell will provide the technical guidance necess
 
 ### Timeline
 
-<img width="1866" height="736" alt="image" src="https://github.com/user-attachments/assets/fa735d92-0459-4c9b-a292-80f236fb295b" />
+<img width="1866" height="736" alt="image" src="https://github.com/user-attachments/assets/38e3a3e8-f966-423d-9ea4-7c4800af35b6" />
 
 
 ## Specific Implications
 
-Explain the implications of solving the problem for the customer. After reading this section, the reader should understand the tangible benefits and the worthiness of the proposed work.
+There are a multitude of reasons for the PLC to be put into place within the company. There are many workers that interact with dangerous chemicals and potential hazards, the automation of the process will provide a safer work environment for employees. The PLC will also have the intention in reducing errors that can be made by people, making sure that everything that leaves it is consistent. A better consistency will also allow for more money to be saved by having less product incorrectly handled, resulting in less waste. The speed of the process should also be faster, having a machine that can process more materials than the average worker can handle with the same quality. 
 
 ## Broader Implications, Ethics, and Responsibility as Engineers
 
-Consider the project’s broader impacts in global, economic, environmental, and societal contexts. Identify potential negative impacts and propose mitigation strategies. Detail the ethical considerations and responsibilities each team member bears as an engineer.
+A broader implication that can be taken from this machine is the fact that reducing waste also helps lessen pollution being added to the environment. If parts are constantly being thrown away then that creates more of a possibility that it affects the environment. There are potential workers that are spared from injury and it also protects the company from dealing with any kind of legal trouble, within proper use of the machine. It is possible that the automation of these processes may remove some of the available jobs for older workers, but it also opens the possibility of them learning to handle machinery or be moved into an arguably better position. Every project also has to consider what happens if anything within the machine fails, this risk should be mitigated by having failsafes that will remove/ contain anything that could harm a worker. 
 
 ## References
 
+All sources used in the project proposal that are not common knowledge must be cited. Multiple references are required.
 [1] Flexial Corporation, "Operations and Capabilities." [Online]. Available: https://flexial.com/capabilities/
-
 [2] Endress+Hauser, "Liquiline M CM42 — Transmitter for pH/ORP, Conductivity, and Oxygen." [Online]. Available: https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/ex-approved-transmitter-cm42
-
 [3] Rockwell Automation, "Programmable Controllers." [Online]. Available: https://www.rockwellautomation.com/en-us/products/hardware/programmable-controllers.html
 
 [4]  PLCopen, “PLCopen Standards.” [Online]. Avalible: https://www.plcopen.org/standards/
@@ -188,3 +188,5 @@ James: Personal section, Survey of existing solutions section.
 George: Specifications, Constraints, Gantt Chart
 
 Phillip: Introduction, Background
+
+Izaiah:Specific & Broader implications
