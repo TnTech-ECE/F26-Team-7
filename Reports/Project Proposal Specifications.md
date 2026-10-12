@@ -94,7 +94,28 @@ Each project proposal must include a comprehensive description of the necessary 
 
 ### Budget
 
-Provide a budget proposal with justifications for expenses such as software, equipment, components, testing machinery, and prototyping costs. This should be an estimate, not a detailed bill of materials.
+# Team 7: Budget Document
+
+Team 7 has a total budget of approximately **$40,000–$50,000**. This budget is intended to provide Flexial with a fully assembled and working PLC system.
+
+Flexial has a three-phase plan to implement the full PLC system. At this time, many costs are unknown because Team 7 has not received the complete plan and/or selected all parts due to outstanding details from Flexial.
+
+## Preliminary Budget
+
+| Item | Price ($) |
+| --- | ---: |
+| PLC Central Processor | N/A |
+| Memory | N/A |
+| Power Supply | N/A |
+| Tank Temperature Sensors (4) | N/A |
+| Oven Temperature Sensor (1) | N/A |
+| Total Dissolved Solid Sensors (4) | N/A |
+| pH Sensors (4) | N/A |
+| Concentration Sensors (4) | N/A |
+
+## Project Timeline and Budget Updates
+
+As stated above, this is a three-phase project. The budget table includes only part of Phase 1 of the overall project. Team 7 is working with the timeline provided by Flexial, so the table is expected to change significantly as the system progresses.
 
 ### **Personel**
 
