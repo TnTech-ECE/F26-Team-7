@@ -86,7 +86,76 @@ The main advantage of this solution is its flexibility in combining machine cont
 
 ## Measures of Success
 
-Define how the project’s success will be measured. This involves explaining the experiments and methodologies to verify that the system meets its specifications and constraints.
+Team 7 will evaluate the success of the Flexial PLC Programming and Process Controls project based on four main factors: **accuracy, reliability, usability and accessibility, and cost-effectiveness.** These factors will help determine how well the PLC systems perform, how easily operators can use them, and how effectively they can be implemented into Flexial's existing processes. The following sections outline the goals and requirements for each factor, along with the methods that will be used to test the system.
+
+## Accuracy
+
+- The system's ability to correctly perform the required operations for each department.
+  - Each PLC shall be programmed using ladder logic to control the assigned process.
+  - All inputs and outputs (I/O) shall be identified and tested to ensure they respond correctly.
+  - The PLC shall complete the required sequence of operations in the correct order without programming errors.
+- The system's ability to communicate with Flexial's existing software.
+  - The PLC shall be configured to communicate with Flexnet and Epicor using compatible communication methods.
+  - Information sent between the PLC and other systems shall be checked to ensure the correct data is being transferred.
+  - Each programmed process shall be tested multiple times to verify consistent operation.
+
+## Reliability
+
+- The system's ability to operate safely and consistently during normal production.
+  - The PLC shall be capable of operating for extended periods without unexpected interruptions caused by programming errors.
+  - Safety features shall be included to prevent equipment from operating under unsafe conditions.
+  - The system shall recognize incorrect operating conditions and stop the process when necessary.
+- The system's ability to handle unexpected problems.
+  - The PLC shall respond safely to power loss, communication errors, and other possible faults.
+  - The system shall provide fault indicators to help operators identify problems.
+  - Each process shall successfully complete at least 20 consecutive cycles without a programming-related failure.
+
+## Usability and Accessibility
+
+- The system's ability to be easily operated by Flexial employees.
+  - A user interface shall be developed to allow operators to control and monitor the process.
+  - The interface shall provide clear instructions to guide operators through each step.
+  - The system shall include features that help reduce human errors during operation.
+- The system's ability to be maintained and modified when needed.
+  - Team 7 shall provide documentation of the PLC programs, hardware requirements, and I/O connections.
+  - PLC programs shall be organized to make troubleshooting and future changes easier.
+  - The required hardware and software shall be identified so replacement components can be obtained when needed.
+- The system's ability to support employee training.
+  - A training procedure shall be developed to explain how to operate the system.
+  - Operators shall be able to follow the instructions provided through the user interface to complete the process.
+
+## Cost-Effectiveness
+
+- The system's ability to provide an affordable solution for improving Flexial's production processes.
+  - Team 7 shall create a list of all hardware and software needed to implement the PLC systems.
+  - The total estimated cost of the equipment and implementation shall be documented.
+  - Existing equipment shall be used whenever possible to reduce additional expenses.
+  - A phased implementation plan shall be created to outline the expected costs and time required for each stage of the project.
+
+## Testing Methodology
+
+### Accuracy
+
+- Each PLC program shall be tested to ensure the ladder logic performs the correct sequence of operations.
+- All inputs and outputs shall be individually checked for proper functionality.
+- Communication with Flexnet and Epicor shall be tested when the necessary connections are available.
+
+### Reliability
+
+- Each process shall be tested for at least 20 consecutive cycles to confirm consistent performance.
+- Safety features and fault detection shall be tested by introducing simulated errors.
+- The PLC shall be tested to verify that it responds appropriately to interruptions and unexpected conditions.
+
+### Usability
+
+- The user interface shall be tested to confirm operators can start, stop, and monitor the process.
+- The step-by-step training procedure shall be demonstrated to evaluate how easily an operator can follow the instructions.
+- Team 7 shall demonstrate how the PLC program can be adjusted or troubleshot when necessary.
+
+### Cost-Effectiveness
+
+- The implementation plan shall be reviewed to determine whether the proposed timeline and expenses are reasonable.
+- All required equipment and software costs shall be recorded and compared with the project's available budget.
 
 ## Resources
 
