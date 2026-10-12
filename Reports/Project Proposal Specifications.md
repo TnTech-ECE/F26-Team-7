@@ -159,11 +159,47 @@ Team 7 will evaluate the success of the Flexial PLC Programming and Process Cont
 
 ## Resources
 
-Each project proposal must include a comprehensive description of the necessary resources.
+Team 7 will need different resources to complete the Flexial PLC Programming and Process Controls project. These include hardware, software, and help from Flexial employees. Since the project has three phases, some of the equipment and materials have not been decided on yet.
+
+## Hardware
+
+- **PLCs:** Used to control and automate the different processes.
+- **PLC Processor:** Runs the ladder logic programs and controls the system.
+- **Memory:** Stores the programs and system information.
+- **Power Supply:** Provides power to the PLC and other components.
+- **Temperature Sensors:** Four tank sensors and one oven sensor to monitor temperatures.
+- **TDS Sensors:** Four sensors to measure dissolved solids in the tanks.
+- **pH Sensors:** Four sensors to monitor pH levels.
+- **Concentration Sensors:** Four sensors to measure chemical concentrations.
+- **Input/Output Modules:** Connect the sensors and other equipment to the PLC.
+
+## Software
+
+- **PLC Programming Software:** Used to write, test, and change ladder logic programs.
+- **Flexnet:** Software already used by Flexial that the PLC will need to communicate with.
+- **Epicor:** Another system used by Flexial that may need to communicate with the PLC.
+- **User Interface Software:** Allows employees to monitor and control the processes.
+
+## Personnel
+
+- **Team 7:** Responsible for researching, programming, testing, and documenting the project.
+- **Flexial Employees:** Help explain how the current equipment and processes work.
+- **Project Supervisor:** Provides guidance and feedback throughout the project.
+
+## Documentation
+
+- PLC programming manuals.
+- Sensor datasheets and equipment specifications.
+- Wiring diagrams.
+- Flexial's current process information.
+- Project budget and timeline.
+
+## Resource Availability
+
+Team 7 is working with Flexial to determine what equipment and software will be needed. The total project budget is estimated to be between **$40,000 and $50,000**. Since the project will be completed in three phases, the resource list and equipment costs will be updated as more information becomes available.
+
 
 ### Budget
-
-# Team 7: Budget Document
 
 Team 7 has a total budget of approximately **$40,000–$50,000**. This budget is intended to provide Flexial with a fully assembled and working PLC system.
 
@@ -275,8 +311,10 @@ Each team member must contribute meaningfully to the project proposal. In this s
 
 James: Personal section, Survey of existing solutions section.
 
-George: Specifications, Constraints, Gantt Chart
+George: Specifications, Constraints, Gantt Chart.
 
-Phillip: Introduction, Background
+Phillip: Introduction, Background.
 
-Izaiah:Specific & Broader implications
+Izaiah: Specific & Broader implications.
+
+Nate: Measure of Success, Budget, Resources.
