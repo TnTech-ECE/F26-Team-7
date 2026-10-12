@@ -41,7 +41,7 @@ F3PC has consulted with the client and has developed preliminary specifications 
 
 - The system shall measure and read values from the hypersonic preclean and cleaning tanks, such as pH, concentration, TDS, and the temperature of the tanks, as well as time in the tanks. 
 
--The system shall measure the temperature of the drying ovens and the time a part is in the ovens.
+- The system shall measure the temperature of the drying ovens and the time a part is in the ovens.
 
 - The system shall measure and read values similar to the cleaning tanks for the passivation tanks
 
@@ -141,7 +141,8 @@ Together, Ron Scarlett and Mike Abell will provide the technical guidance necess
 
 ### Timeline
 
-!Screenshot 2026-10-09 005342.png
+<img width="1866" height="736" alt="image" src="https://github.com/user-attachments/assets/fa735d92-0459-4c9b-a292-80f236fb295b" />
+
 
 ## Specific Implications
 
@@ -153,9 +154,10 @@ Consider the project’s broader impacts in global, economic, environmental, and
 
 ## References
 
-All sources used in the project proposal that are not common knowledge must be cited. Multiple references are required.
 [1] Flexial Corporation, "Operations and Capabilities." [Online]. Available: https://flexial.com/capabilities/
+
 [2] Endress+Hauser, "Liquiline M CM42 — Transmitter for pH/ORP, Conductivity, and Oxygen." [Online]. Available: https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/ex-approved-transmitter-cm42
+
 [3] Rockwell Automation, "Programmable Controllers." [Online]. Available: https://www.rockwellautomation.com/en-us/products/hardware/programmable-controllers.html
 
 [4]  PLCopen, “PLCopen Standards.” [Online]. Avalible: https://www.plcopen.org/standards/
