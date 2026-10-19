@@ -1,5 +1,6 @@
 # Project Proposal
 
+
 ## Introduction
 
 Modern manufacturing processes require precise control, consistant operating conditions, and reliable monitering systems to maintain product quality and efficiency. These requirements are espescially important in industries such as aerospace and defence, where defects can have dire consequences. Flexial Corporation specializes in manufacturing precision metal bellows, accumulators, and flexible metal hose assemblies for aerospace, defense, and other industrial applications.
