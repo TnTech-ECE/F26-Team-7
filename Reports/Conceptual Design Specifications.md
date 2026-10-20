@@ -64,7 +64,7 @@ F3PC has consulted with the client and has developed preliminary specifications 
 
 - The system shall measure and read values from the hypersonic preclean and cleaning tanks, such as pH, concentration, TDS, and the temperature of the tanks, as well as time in the tanks. 
 
--The system shall measure the temperature of the drying ovens and the time a part is in the ovens.
+- The system shall measure the temperature of the drying ovens and the time a part is in the ovens.
 
 - The system shall measure and read values similar to the cleaning tanks for the passivation tanks
 
