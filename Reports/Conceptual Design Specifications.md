@@ -126,6 +126,80 @@ Detail the operation of the subsystem:
 For all subsystems, formulate detailed "shall" statements. Ensure these statements are comprehensive enough so that an engineer who is unfamiliar with your project can design the subsystem based on your specifications. Assume the role of the customer in this context to provide clear and precise requirements.
 
 
+
+### Barcode Scanner and Validation Subsystem:
+
+This subsystem obtains the data by using a barcode scanner to take in an input of a part starting or leaving the cleaning or passivation process. It will scan the barcode on the part itself and convert that code into a data string that will go through each step of its respective process as each step is completed. Once the part is done in either process, the part is checked for validation by measuring the thickness of the part before and after to find how much material was removed. If the correct amount was removed, the part is validated and moves to the next process.
+
+Barcode Scanner:
+- Signal: Digital
+- Direction:  Input to PLC
+- Protocols: (Not Sure)
+- Sends String Data to PLC
+
+Validation:
+- Signal: Digital
+- Direction:  Input and Output to PLC
+- Protocols: OPC UA (Since data collection)
+- Data Sent: String of Thickness, then Boolean for Validation
+
+Requirements:
+- The subsystem shall take a barcode input and store that string until the part is scanned out.
+- The subsystem shall measure the thickness of the part before and after the part comes into its respective process. If the part has too much material removed or not enough material removed, reject the part. If the part meets the required material reduction, the part is accepted and moves to the next process.
+
+### Cleaning Sensors, Timers, and Lights Subsystem:
+
+This subsystem will continuously read physical sensors for all four tanks in the cleaning process and convert the obtained 4-20 mA data into measurable quantities with proper units. The sensors used will be pH, Concentration, Conductivity, TDS, Temperature, Water flow, and Air flow. When a part enters each step of the cleaning process, a timer is started. When the part has been in its respective step for the required amount of time, the time latches as done and turns on a light for that step. The part is then put into the next step of cleaning. 
+
+Sensors:
+- Signal: 4-20mA analog 
+- Direction:  Input to PLC
+- Protocols: Current loop
+- Data Sent: Loop currents with a value of 4-20mA, which are then converted to pH, TDS, Conductivity, Temperature, Water flow, or Air flow depending on the sensor.
+
+Lights:
+- Signal: 120 Vac
+- Direction: Output to PLC
+- Protocols: N/A (I think)
+- Data Sent: Binary Boolean for on and off
+
+Requirments:
+- The subsystem shall convert the 4-20mA currents obtained from the sensors to usable values.
+- The subsystem shall ensure that when the specified amount of time has passed for a part to be in a tank, the light turns on.
+- The subsystem shall alert the user when the conductivity of tank 4 exceeds 20 S.
+
+### Passivation Sensors, Timers, and Lights:
+
+This subsystem monitors the 3 Nitric acid tanks using pH, temperature, TDS, and concentration sensors; the Nitric acid and hydrofluoric acid pickling tank using pH, Temperature, TDS, and Concentration sensors; the two immersion rinse tanks using TDS, Temperature, Concentration, and pH sensors; and the one manual rinse tank using only a water flow sensor. It will read and convert the 4-20mA values from the sensors and send those values to the PLC. Timers will start when a part goes into a tank, and once the time for the part in that tank is completed, the light turns on to notify that the part is ready for the next step of passivation.
+
+Sensors:
+- Signal: 4-20mA analog 
+- Direction:  Input to PLC
+- Protocols: Current loop
+- Data Sent: Loop currents with a value of 4-20mA, which are then converted to Temperature, pH, TDS, Concentration, and Water flow.
+
+Lights:
+- Signal: 120 Vac
+- Direction: Output to PLC
+- Protocols: N/A (I think)
+- Data Sent: Binary Boolean for on and off
+
+Requirements:
+- The subsystem shall convert the 4-20mA currents obtained from the sensors to usable values.
+- The subsystem shall ensure that when the specified amount of time has passed for a part to be in a tank, the light turns on.
+
+### PLC to Server Subsystem:
+
+This subsystem will communicate the information stored in the PLC to the web server so that the information on where a part is in the fabrication process and in each of the subprocesses and steps a part is at can be viewed online via a web browser. It will sync with Flexial’s Epicor ERP/FlexNet servers.
+
+Requirements:
+- The subsystem shall establish a one-way data transfer from the PLC to the server.
+- The subsystem shall update the values in the server within 1 second of the values being updated on the PLC.
+- The subsystem shall allow a user to remotely view the data in the PLC to see where a part is in the fabrication process.
+- The subsystem shall block outside data from coming in and affecting the PLC so that security and safety is ensured and no I/O logic or pins can be overwritten.
+
+(Phillip, text in parentheses are just a couple things I was not sure on and specifically wanted to mention. Feel free to make any changes if you feel there is a better way to describe a process or if I have wrong information)
+
 ## Ethical, Professional, and Standards Considerations
 
 In the project proposal, each team must evaluate the broader impacts of the project on culture, society, the environment, public health, public safety, and the economy. Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations.
