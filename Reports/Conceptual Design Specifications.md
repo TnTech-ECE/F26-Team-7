@@ -108,8 +108,12 @@ The end result should present a comprehensive view of a well-defined system, del
 
 ### Operational Flow Chart
 
-Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.
+# PLC System Flowcharts
 
+## Cleaning Subsystem
+<img width="1324" height="1334" alt="image" src="https://github.com/user-attachments/assets/b2076098-2e7e-467c-b52e-6f9411ee96f2" />
+## Passivation Subsystem
+<img width="1614" height="1320" alt="image" src="https://github.com/user-attachments/assets/65a4be8e-332f-4415-95be-516fc2c62808" />
 
 ## Atomic Subsystem Specifications
 
