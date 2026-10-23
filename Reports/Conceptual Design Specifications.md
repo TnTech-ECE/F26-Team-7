@@ -79,8 +79,11 @@ The end result should present a comprehensive view of a well-defined system, del
 # PLC System Flowcharts
 
 ## Cleaning Subsystem
+
 <img width="1324" height="1334" alt="image" src="https://github.com/user-attachments/assets/b2076098-2e7e-467c-b52e-6f9411ee96f2" />
+
 ## Passivation Subsystem
+
 <img width="1614" height="1320" alt="image" src="https://github.com/user-attachments/assets/65a4be8e-332f-4415-95be-516fc2c62808" />
 
 ## Atomic Subsystem Specifications
