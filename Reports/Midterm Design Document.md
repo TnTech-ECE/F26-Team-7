@@ -638,6 +638,6 @@ Each team member is required to make a meaningful contribution to the project pr
 
 Phillip: Introduction, Background, and Atomic Subsystems.
 
-
+Nate: Measure of Success, Budget, Resources, High Level Solution, and Flowcharts.
 
 
