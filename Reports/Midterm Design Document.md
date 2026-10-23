@@ -272,14 +272,14 @@ Together, Ron Scarlett and Mike Abell will provide the technical guidance necess
 <img width="1866" height="736" alt="image" src="https://github.com/user-attachments/assets/38e3a3e8-f966-423d-9ea4-7c4800af35b6" />
 
 
-## Specific Implications
+# Specific Implications
 
-There are a multitude of reasons for the PLC to be put into place within the company. There are many workers that interact with dangerous chemicals and potential hazards, the automation of the process will provide a safer work environment for employees. The PLC will also have the intention in reducing errors that can be made by people, making sure that everything that leaves it is consistent. A better consistency will also allow for more money to be saved by having less product incorrectly handled, resulting in less waste. The speed of the process should also be faster, having a machine that can process more materials than the average worker can handle with the same quality. 
+## **Ethical, Professional, and Standards Considerations**
 
-## Broader Implications, Ethics, and Responsibility as Engineers
+In the project proposal, each team must evaluate the broader impacts of the project on culture, society, the environment, public health, public safety, and the economy. Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations.
 
-A broader implication that can be taken from this machine is the fact that reducing waste also helps lessen pollution being added to the environment. If parts are constantly being thrown away then that creates more of a possibility that it affects the environment. There are potential workers that are spared from injury and it also protects the company from dealing with any kind of legal trouble, within proper use of the machine. It is possible that the automation of these processes may remove some of the available jobs for older workers, but it also opens the possibility of them learning to handle machinery or be moved into an arguably better position. Every project also has to consider what happens if anything within the machine fails, this risk should be mitigated by having failsafes that will remove/ contain anything that could harm a worker. 
-
+There are a multitude of reasons for the PLC to be put into place within the company. There are many workers that interact with dangerous chemicals and potential hazards, the automation of the process will provide a safer work environment for employees. The PLC will also have the intention in reducing errors that can be made by people, making sure that everything that interacts with it is consistent. A better consistency will also allow for more money to be saved by having less product incorrectly handled, resulting in less waste. The speed of the process should also be faster, having a machine that can process more materials than the average worker can handle with the same quality.
+A broader implication that can be taken from this machine is the fact that reducing waste also helps lessen pollution being added to the environment. If parts are constantly being thrown away then that creates more of a possibility that it affects the environment. There are also workers that are spared from the risk of injury and this not only protects the workers, but also protects the company from dealing with any kind of legal trouble, within proper use of the machine. It is possible that the automation of these processes may remove some of the available jobs for current workers, but it also opens the possibility of them learning to handle machinery or be moved into an arguably better position. Every project also has to consider what happens if anything within the machine fails, this risk should be mitigated by having failsafes that will remove/ contain anything that could harm a worker.
 
 ## Statement of Contributions
 
@@ -638,6 +638,8 @@ Each team member is required to make a meaningful contribution to the project pr
 
 Phillip: Introduction, Background, and Atomic Subsystems.
 
-Nate: Measure of Success, Budget, Resources, High Level Solution, and Flowcharts.
+Nate: Measure of Success, Budget, Resources, and Flowcharts.
 
+James: Personal section, Survey of existing solutions section, and Hardware Block Diagram.
 
+Izaiah: Specific & Broader implications, and High Level Solution
