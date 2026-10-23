@@ -220,7 +220,110 @@ You have already estimated the resources needed to complete the solution. Now, l
 
 ### Budget
 
-Develop a budget proposal with justifications for expenses associated with each subsystem. Note that the total of this budget proposal can also serve as a specification for each subsystem. After creating the budgets for individual subsystems, merge them to create a comprehensive budget for the entire solution.
+# Team 7: Revised Budget Document
+
+## Project Budget Overview
+
+Team 7 has an estimated budget of **$40,000–$50,000** for the Flexial PLC Programming and Process Controls project. The budget has been divided into five subsystems: cleaning sensors, passivation sensors, PLC hardware and controls, barcode scanning, and Flexnet/Epicor communication.
+
+The current estimated project cost is **$49,500**, including contingency. All PLC hardware, sensors, and valves will need to be purchased. Flexial will handle the programming and software integration, helping reduce overall project costs.
+
+## 1. Cleaning Sensors
+
+This subsystem includes the sensors needed to monitor the cleaning tanks and oven conditions.
+
+| Equipment | Quantity | Unit Price ($) | Total ($) |
+|---|---:|---:|---:|
+| pH Sensors | 3 | 500 | 1,500 |
+| TDS Sensors | 3 | 450 | 1,350 |
+| Temperature Sensors | 5 | 150 | 750 |
+| Concentration Sensor | 1 | 1,500 | 1,500 |
+| Conductivity Sensor | 1 | 500 | 500 |
+| Water Flow Sensor | 1 | 400 | 400 |
+| Air Flow Measurements | 2 | 500 | 1,000 |
+| **Cleaning Subtotal** | | | **7,000** |
+
+## 2. Passivation Sensors
+
+This subsystem includes the sensors used to monitor the passivation tanks and chemical conditions.
+
+| Equipment | Quantity | Unit Price ($) | Total ($) |
+|---|---:|---:|---:|
+| pH Sensors | 6 | 500 | 3,000 |
+| TDS Sensors | 6 | 450 | 2,700 |
+| Temperature Sensors | 6 | 150 | 900 |
+| Concentration Sensors | 6 | 1,500 | 9,000 |
+| Water Flow Sensor | 1 | 400 | 400 |
+| Thickness Measurements | 2 | 500 | 1,000 |
+| **Passivation Subtotal** | | | **17,000** |
+
+## 3. PLC Hardware and Controls
+
+This subsystem includes the main PLC equipment, input/output modules, user interface, and valves needed to monitor and control the processes.
+
+| Equipment | Quantity | Total ($) |
+|---|---:|---:|
+| PLC Processor | 1 | 2,500 |
+| PLC Memory / Storage | 1 | 200 |
+| Power Supply | 1 | 400 |
+| Analog Input Modules | TBD | 4,000 |
+| Digital I/O Modules | TBD | 1,500 |
+| User Interface | 1 | 1,500 |
+| Fill Valves | 6 | 1,800 |
+| Drain Valves | 6 | 1,800 |
+| Control Cabinet and Wiring | 1 | 2,000 |
+| Safety Equipment / Relays | TBD | 1,300 |
+| PLC Network Equipment | TBD | 1,000 |
+| **PLC Subtotal** | | **18,000** |
+
+## 4. Barcode Scanning
+
+This subsystem will allow operators to scan part numbers and associate them with recorded process information.
+
+| Equipment | Quantity | Total ($) |
+|---|---:|---:|
+| Barcode Scanner | 1 | 650 |
+| Scanner Communication Hardware | 1 | 200 |
+| Part Number Storage Setup | 1 | 150 |
+| **Barcode Subtotal** | | **1,000** |
+
+## 5. Flexnet / Epicor Communication
+
+This subsystem will allow the PLC system to communicate with Flexial's existing software and store process information.
+
+Flexial will handle programming and integration, reducing the need for outside labor.
+
+| Equipment / Service | Total ($) |
+|---|---:|
+| Communication Hardware | 700 |
+| Data Storage / Configuration | 500 |
+| Integration Testing Materials | 300 |
+| Software / License Allowance | 500 |
+| **Flexnet / Epicor Subtotal** | **2,000** |
+
+## 6. Overall Project Budget
+
+| Subsystem | Estimated Cost ($) |
+|---|---:|
+| Cleaning Sensors | 7,000 |
+| Passivation Sensors | 17,000 |
+| PLC Hardware and Controls | 18,000 |
+| Barcode Scanning | 1,000 |
+| Flexnet / Epicor Communication | 2,000 |
+| **Subtotal** | **45,000** |
+| Contingency | 4,500 |
+| **Total Estimated Budget** | **49,500** |
+
+## 7. Budget Updates
+
+The current estimated budget for the Flexial PLC Programming and Process Controls project is **$49,500**, which is within the original $50,000 budget limit.
+
+The estimated costs are based on the equipment requirements identified in the cleaning and passivation I/O tables. Prices are preliminary planning estimates and have not yet been confirmed through supplier quotations.
+
+Team 7 will continue researching equipment and comparing prices to ensure the selected components meet Flexial's requirements while staying within the project budget.
+
+The budget may change as equipment is selected and additional information becomes available. Particular attention will be given to sensor compatibility, PLC input/output requirements, and the equipment needed for automatic draining and reconcentration during passivation.
+
 
 ### Division of Labor
 
