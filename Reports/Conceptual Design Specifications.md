@@ -92,8 +92,65 @@ In this section, various potential solutions are hypothesized, design considerat
 
 ## High-Level Solution
 
-This section presents a comprehensive, high-level solution aimed at efficiently fulfilling all specified requirements and constraints. The solution is designed to maximize stakeholder goal attainment, adhere to established constraints, minimize risks, and optimize resource utilization. Please elaborate on how your design accomplishes these objectives.
+Team 7 plans to develop a PLC-based monitoring and control system for Flexial's cleaning and passivation processes. The system will use sensors, a PLC, and a user interface to monitor tank conditions, record data, and improve process efficiency. The system will also track parts using barcode scanning and communicate with Flexial's existing software.
 
+#### Proposed Design:
+
+The project will be divided into five main subsystems: cleaning sensors, passivation sensors, PLC hardware, barcode scanning, and Flexnet/Epicor communication. These subsystems will work together to collect, display, and store process information.
+
+#### Cleaning Subsystem:
+
+The cleaning subsystem will monitor tank conditions using temperature, pH, TDS, concentration, conductivity, water flow, and air flow measurements. It will also monitor oven temperatures.
+
+The operator will start and stop the cleaning process through the interface. During operation, the PLC will collect sensor readings and display them for the operator. If a reading falls outside the acceptable range, the interface will display a warning.
+
+#### Passivation Subsystem:
+
+The passivation subsystem will monitor temperature, pH, TDS, concentration, water flow, and thickness measurements.
+
+The operator will start and stop the passivation process through the interface. The PLC will also automatically control draining and reconcentration when needed. This will help maintain the required chemical conditions and reduce manual adjustments.
+
+#### PLC and User Interface:
+
+The PLC will collect information from the sensors and send it to the user interface. Operators will be able to view sensor readings, start and stop processes, and receive warnings when problems occur.
+
+The system will use one main PLC and a shared interface for both cleaning and passivation.
+
+#### Barcode Scanning:
+
+The barcode system will allow operators to scan part numbers before starting a process. The PLC will associate the part number with the recorded sensor data.
+
+Once the process is finished, the part number and process information will be saved for future reference.
+
+#### Flexnet and Epicor Communication:
+
+The system will be designed to communicate with Flexial's existing Flexnet and Epicor software. This will help transfer and organize part numbers, sensor readings, and process records.
+
+#### Meeting Project Goals:
+
+The main goal of this project is to improve how Flexial monitors and records its cleaning and passivation processes.
+
+The system will reduce manual data recording, make sensor readings easier to access, and improve part tracking. Automatic draining and reconcentration during passivation will also help reduce the amount of manual work required from operators.
+
+#### Requirements and Constraints:
+
+Team 7 will design the system around Flexial's requirements, available equipment, and project timeline.
+
+The current budget target is approximately **$49,500**, including contingency. This is a preliminary estimate, and equipment prices will be updated as components are selected.
+
+The team will also make sure the selected sensors, PLC equipment, and communication systems are suitable for the required processes.
+
+#### Risk Reduction:
+
+The system will display warnings when sensor readings fall outside acceptable limits. This will help operators identify problems during cleaning and passivation.
+
+The automatic passivation functions will include safety checks to help prevent incorrect draining or reconcentration. Team 7 will also test the sensors, PLC communication, barcode scanning, and data recording to make sure the system works correctly.
+
+#### Resource Utilization:
+
+The project will use one PLC and a shared user interface for both cleaning and passivation. This will reduce duplicate equipment and help control costs.
+
+Separating the project into subsystems will make programming, testing, and troubleshooting easier. Flexial will also provide programming and software integration support, helping the team stay within the project budget.
 
 ### Hardware Block Diagram
 
