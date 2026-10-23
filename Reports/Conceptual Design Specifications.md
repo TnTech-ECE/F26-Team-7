@@ -134,13 +134,13 @@ This subsystem obtains the data by using a barcode scanner to take in an input o
 Barcode Scanner:
 - Signal: Digital
 - Direction:  Input to PLC
-- Protocols: (Not Sure)
+- Protocols: Communicates with PLC*
 - Sends String Data to PLC
 
 Validation:
 - Signal: Digital
 - Direction:  Input and Output to PLC
-- Protocols: OPC UA (Since data collection)
+- Protocols: OPC UA (Since data collection)*
 - Data Sent: String of Thickness, then Boolean for Validation
 
 Requirements:
@@ -159,8 +159,8 @@ Sensors:
 
 Lights:
 - Signal: 120 Vac
-- Direction: Output to PLC
-- Protocols: N/A (I think)
+- Direction: Output for PLC
+- Protocols: Controlled by PLC*
 - Data Sent: Binary Boolean for on and off
 
 Requirments:
@@ -181,7 +181,7 @@ Sensors:
 Lights:
 - Signal: 120 Vac
 - Direction: Output to PLC
-- Protocols: N/A (I think)
+- Protocols: Communicates with PLC*
 - Data Sent: Binary Boolean for on and off
 
 Requirements:
