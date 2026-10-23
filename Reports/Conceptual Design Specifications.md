@@ -103,6 +103,8 @@ In the block diagram, each subsystem should be depicted by a single block. For e
 
 The end result should present a comprehensive view of a well-defined system, delegating all atomic responsibilities necessary to accomplish the project scope to their respective subsystems.
 
+<img width="1776" height="1186" alt="image" src="https://github.com/user-attachments/assets/cec01598-f38d-4a80-8667-938ba793018f" />
+
 
 ### Operational Flow Chart
 
@@ -134,13 +136,13 @@ This subsystem obtains the data by using a barcode scanner to take in an input o
 Barcode Scanner:
 - Signal: Digital
 - Direction:  Input to PLC
-- Protocols: Communicates with PLC*
+- Protocols: Communicates with PLC
 - Sends String Data to PLC
 
 Validation:
 - Signal: Digital
 - Direction:  Input and Output to PLC
-- Protocols: OPC UA (Since data collection)*
+- Protocols: Validated through Epicor and flexnet 
 - Data Sent: String of Thickness, then Boolean for Validation
 
 Requirements:
@@ -160,7 +162,7 @@ Sensors:
 Lights:
 - Signal: 120 Vac
 - Direction: Output for PLC
-- Protocols: Controlled by PLC*
+- Protocols: Controlled by PLC
 - Data Sent: Binary Boolean for on and off
 
 Requirments:
@@ -181,7 +183,7 @@ Sensors:
 Lights:
 - Signal: 120 Vac
 - Direction: Output to PLC
-- Protocols: Communicates with PLC*
+- Protocols: Communicates with PLC
 - Data Sent: Binary Boolean for on and off
 
 Requirements:
@@ -198,7 +200,10 @@ Requirements:
 - The subsystem shall allow a user to remotely view the data in the PLC to see where a part is in the fabrication process.
 - The subsystem shall block outside data from coming in and affecting the PLC so that security and safety is ensured and no I/O logic or pins can be overwritten.
 
-(Phillip, text in parentheses are just a couple things I was not sure on and specifically wanted to mention. Feel free to make any changes if you feel there is a better way to describe a process or if I have wrong information)
+###User Interface
+The system will run into Optix. This is a way of displaying the HMI style interface onto a server. 
+
+- The subsystem shall give a user friendly way to monitor data points and see that they are recorded.
 
 ## Ethical, Professional, and Standards Considerations
 
