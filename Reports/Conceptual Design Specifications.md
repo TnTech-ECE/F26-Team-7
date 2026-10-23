@@ -174,8 +174,6 @@ In the project proposal, each team must evaluate the broader impacts of the proj
 
 ### Budget
 
-# Team 7: Revised Budget Document
-
 ## Project Budget Overview
 
 Team 7 has an estimated budget of **$40,000–$50,000** for the Flexial PLC Programming and Process Controls project. The budget has been divided into five subsystems: cleaning sensors, passivation sensors, PLC hardware and controls, barcode scanning, and Flexnet/Epicor communication.
