@@ -280,31 +280,6 @@ There are a multitude of reasons for the PLC to be put into place within the com
 
 A broader implication that can be taken from this machine is the fact that reducing waste also helps lessen pollution being added to the environment. If parts are constantly being thrown away then that creates more of a possibility that it affects the environment. There are potential workers that are spared from injury and it also protects the company from dealing with any kind of legal trouble, within proper use of the machine. It is possible that the automation of these processes may remove some of the available jobs for older workers, but it also opens the possibility of them learning to handle machinery or be moved into an arguably better position. Every project also has to consider what happens if anything within the machine fails, this risk should be mitigated by having failsafes that will remove/ contain anything that could harm a worker. 
 
-## References
-
-All sources used in the project proposal that are not common knowledge must be cited. Multiple references are required.
-[1] Flexial Corporation, "Operations and Capabilities." [Online]. Available: https://flexial.com/capabilities/
-[2] Endress+Hauser, "Liquiline M CM42 — Transmitter for pH/ORP, Conductivity, and Oxygen." [Online]. Available: https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/ex-approved-transmitter-cm42
-[3] Rockwell Automation, "Programmable Controllers." [Online]. Available: https://www.rockwellautomation.com/en-us/products/hardware/programmable-controllers.html
-
-[4]  PLCopen, “PLCopen Standards.” [Online]. Avalible: https://www.plcopen.org/standards/
-
-[5] Fortinet, “**The IEC 62443 Industrial Cybersecurity Standard” [Online]. Available:** https://www.fortinet.com/resources/cyberglossary/iec-62443
-
-[6] Inductive Automation, “New SCADA and OEE for Ariens, Maker of Four Million Snow Blowers,” Inductive Automation, 2021. [Online]. Available:
-https://inductiveautomation.com/resources/customerproject/new-scada-and-oee-for-ariens-maker-of-four-million-snow-blowers
-
-[7] Epicor Software Corporation, “Epicor Advanced MES,” Epicor. [Online]. Available:
-https://www.epicor.com/en/products/manufacturing-execution-software-mes/advanced-mes/
-
-[8] Epicor Software Corporation, “Epicor Advanced MES Data Exchange,” Epicor. [Online]. Available:
-https://www.epicor.com/en-us/products/manufacturing-execution-software-mes/advanced-mes/ptw-data-exchange/
-
-[9] Beckhoff Automation, “TC1200 — TwinCAT 3 PLC,” Beckhoff Automation. [Online]. Available:
-https://www.beckhoff.com/en-us/products/automation/twincat/tcxxxx-twincat-3-base/tc1200.html
-
-[10] Beckhoff Automation, “TwinCAT OPC UA to Integrate the Shop Floor with the Top Floor,” technical demonstration, Beckhoff Automation. [Online]. Available:
-https://download.beckhoff.com/download/software/twincat/TwinCAT2/Solutions/PLC-ConnectedTo-SAP/OPC-UA-SAP-Beckhoff-v2.pdf
 
 ## Statement of Contributions
 
@@ -631,13 +606,37 @@ Revise the detailed timeline (Gantt chart) you created in the project proposal. 
 
 ## References
 
+
 [1] Flexial Corporation, "Operations and Capabilities." [Online]. Available: https://flexial.com/capabilities/
+
+[2] Endress+Hauser, "Liquiline M CM42 — Transmitter for pH/ORP, Conductivity, and Oxygen." [Online]. Available: https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/ex-approved-transmitter-cm42
+
+[3] Rockwell Automation, "Programmable Controllers." [Online]. Available: https://www.rockwellautomation.com/en-us/products/hardware/programmable-controllers.html
+
+[4]  PLCopen, “PLCopen Standards.” [Online]. Avalible: https://www.plcopen.org/standards/
+
+[5] Fortinet, “**The IEC 62443 Industrial Cybersecurity Standard” [Online]. Available:** https://www.fortinet.com/resources/cyberglossary/iec-62443
+
+[6] Inductive Automation, “New SCADA and OEE for Ariens, Maker of Four Million Snow Blowers,” Inductive Automation, 2021. [Online]. Available:
+https://inductiveautomation.com/resources/customerproject/new-scada-and-oee-for-ariens-maker-of-four-million-snow-blowers
+
+[7] Epicor Software Corporation, “Epicor Advanced MES,” Epicor. [Online]. Available:
+https://www.epicor.com/en/products/manufacturing-execution-software-mes/advanced-mes/
+
+[8] Epicor Software Corporation, “Epicor Advanced MES Data Exchange,” Epicor. [Online]. Available:
+https://www.epicor.com/en-us/products/manufacturing-execution-software-mes/advanced-mes/ptw-data-exchange/
+
+[9] Beckhoff Automation, “TC1200 — TwinCAT 3 PLC,” Beckhoff Automation. [Online]. Available:
+https://www.beckhoff.com/en-us/products/automation/twincat/tcxxxx-twincat-3-base/tc1200.html
+
+[10] Beckhoff Automation, “TwinCAT OPC UA to Integrate the Shop Floor with the Top Floor,” technical demonstration, Beckhoff Automation. [Online]. Available:
+https://download.beckhoff.com/download/software/twincat/TwinCAT2/Solutions/PLC-ConnectedTo-SAP/OPC-UA-SAP-Beckhoff-v2.pdf
 
 ## Statement of Contributions
 
 Each team member is required to make a meaningful contribution to the project proposal. In this section, each team member is required to document their individual contributions to the report. One team member may not record another member's contributions on their behalf. By submitting, the team certifies that each member's statement of contributions is accurate.
 
-
+Phillip: Introduction, Background, and Atomic Subsystems.
 
 
 
