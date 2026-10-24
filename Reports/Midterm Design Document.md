@@ -32,36 +32,48 @@ Developing a system with these capabilities presents challenges beyond those add
 
 Addressing these challenges necessitates a coordinated engineering effort encompassing industrial instrumentation, electrical circuit design, control systems, PLC programming, and software integration. The senior design team will investigate compatible technologies, develop the control architecture, implement the necessary interfaces, and verify system operation. By integrating these engineering disciplines, the project seeks to deliver a practical automation system that fulfills Flexial’s manufacturing requirements and accommodates future enhancements and expansion.
 
-### Specifications and Constraints
+## Specifications and Constraints
 
 F3PC has consulted with the client and has developed preliminary specifications and constraints for the design of the PLC system.
 
-## Capability Specifications
-- The system shall track where a part is in the fabrication process, with our team beginning at the cleaning process.
+### Universal Specifications:
 
-- The system shall use a barcode system to scan a part in and out of the cleaning process.
+- The system shall track when a part enters and exits a specific process by being scanned in and out using a barcode scanning system.
+- The system shall keep track of each step of a process a part was in and how long each part took. For example, it will keep track how long a part was in a tank before being moved to the next step of a process.
+- The system shall turn on a light above each tank or station when the required amount of time a part has to be in a specific step is met to notify when it is ready for the next step.
+- The system shall validate if a part has successfully met the requirements of each specific process it goes through (For example, before and after cleaing, then again for passivation). For cleaning, this is done by ensuring each part has been in each station for the required amount of time and that all the stations were set to the correct range. For passivation, this is done by measuring the thickness of the part before and after the process. If a part is found to not meet the standards when finished with a process, it is flagged as incomplete.
+- The system shall communicate the data read and converted from the sensors and PLC to the Flexnet and Epicor software to allow the data to be viewed remotely.
+- The system shall not allow remote users to manipulate or change the data found in any way, only allowing for a read-only view.
+- The system shall digitally store the data collected for a part and keep the data for a specific part together with its ID number for easy retreval.
+  
+### Cleaning Process Specifications:
 
-- The system shall measure and read values from the hypersonic preclean and cleaning tanks, such as pH, concentration, TDS, and the temperature of the tanks, as well as time in the tanks. 
+- The system shall read values from the sensors in tank 1 (wash tank) using a 4-20mA current loop output to receive the raw data from the pH, concentration, Total Dissolved Solids (TDS), and temperature to be converted to the proper values.  A drain and fill valve will also be implemented to regulate liquids.
+- The system shall read the value of the flow sensor for tank 2 (Air-Blow tank) using a 4-20mA current loop output to receive the raw data and convert it to air flow in PSI.
+- The system shall read values from the sensors in tank 3 (city water rinse) using a 4-20mA current loop output to receive the raw data from the pH, TDS, water flow, and temperature to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids.
+- The system shall read values from the sensors in tank 4 (conductive rinse) using a 4-20mA current loop output to receive the raw data from the pH, conductivity, and TDS to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids in tank. 
+- The system shall ensure that the conductivity of tank 4 will remain under 20 Siemens by reading the values from the conductivity sensor and comparing the found conductivity to the desired value.
+- The system shall read temperature of the drying ovens while a part is in them.
+  
+### Passivation Specifications:
 
--The system shall measure the temperature of the drying ovens and the time a part is in the ovens.
+- The system shall read values from the sensors in tanks 1, 2, and 3 (Nitric acid tanks) using a 4-20mA current loop output to receive the raw data from the pH, Temperature, TDS, and Concentration independently to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids in tank. 
+- The system shall read values from the sensors in the pickling tank (Nitric acid/Hydrofluoric acid mix) using a 4-20mA current loop output to receive the raw data from the Temperature, TDS, and Concentration to be converted to the proper values.
+- The system may be able to read the difference in concentration of the Nitric acid and the Hydroflouric acid in the pickling tank by reading the values from two concentration sensors using a 4-20mA current output.
+- The system shall read values from the sensors in the two immersion tanks using a 4-20mA current loop output to receive the raw data from the TDS, Temperature, Concentration, and pH independently to be converted to the proper values.
+- The system shall read the value of the water flow sensor of the hose in the manual rinse tank and use its 4-20mA current loop output to convert the value to percent output.
+  
+### Constraints:
 
-- The system shall measure and read values similar to the cleaning tanks for the passivation tanks
+ - The system shall use sensors that have a 4-20 mA current loopp output, which will be converted into a digital output that can be read by the PLC
+- The system shall be able to have physical and electrical parts that can be replaced if sensors, probes, or other mechanisms are damaged or unresponsive.
+- The system shall be modular in design such that the system logic, hardware, data mapping, and all other design choices allow for additional steps and processes of the part fabrication process to be added to the system, such as heat treating and welding. This requires the PLC to have enough CPU to ensure that there will be enough room for the whole process and that all connections are made such that more connections can be added later.
+- The system shall follow the standard IEC 61131-3 for PLC programming. This standard ensures that data from 4-20mA sensors are stored as REAL data types and that the PLC code is modular with each step and process having isolated architecture [4].
+- The system shall follow the standards IEC 62443-3-3 and 62443-4-2 for cybersecurity. These standards ensure that the physical PLC, HMI, and sensors are in controlled security zones, that the remote viewing server is in a DMZ zone, and that communication from the viewer and the PLC goes through a firewall before communicating [5].
+- The system shall follow the standard NFPA 496 for physical PLC safety. This standard ensures that the electronic panel has a vapor seal to protect it from acidic gases and liquids, that a mechanical air-purge regulator keeps it dry and clean, and that a pressure-differential sensor alerts when water is detercted in the cabinet.
+- The system shall follow the standards NEC Article 430 & Article 500 for electrical safety. These standards ensures that grounded steel barries separate the 4-20mA sensor terminal blocks from the 120 VAC high-voltage and that all input and output hardware is protected by running all components through isolated interposing relays with RC snubber circuits to suppress voltage spikes.
+- This system shall follow the standards ASTM A967 / AMS 2700  for passivation. These standards ensure that the PLC data or logic cannot be overwritten by operators or supervisors by hardcoding pass and fail calculations into the PLC memory as non-volatile constants and that the data setting process completion to true cannot be pushed to Flexnet or Epicor until the data is confirmed by the endpoints and calculations.
 
-- The system shall be able to ensure that a part comes out of cleaning properly and will notify the user if any error is found.
-
-- The system may have more steps of the fabrication process added to it, such as heat treating, forming, and welding.
-
-## Constraints
-
-- The system shall be able to have more operations of the fabrication process added to it.
-
-- The system shall use 4-20mA analog sensors to measure and read values from the cleaning tanks.
-
-- The system shall allow for replacement sensors so if they wear out or are damaged the system does not have to be redone.
-
-- The system shall follow all regulations of logic, motor control, code safety, and all other coding regulations detailed in IEC 61131 [4].
-
-- The system shall follow all electrical, component, and cybersecurity safety regulations detailed in IEC 62443 [5]. 
 
 ## Survey of Existing Solutions           
 
@@ -643,3 +655,5 @@ Nate: Measure of Success, Budget, Resources, and Flowcharts.
 James: Personal section, Survey of existing solutions section, and Hardware Block Diagram.
 
 Izaiah: Specific & Broader implications, and High Level Solution
+
+George: Specifications, Constraints, Gantt Chart, and Atomic Subsystems.
