@@ -281,7 +281,7 @@ Together, Ron Scarlett and Mike Abell will provide the technical guidance necess
 
 ### Timeline
 
-<img width="1866" height="736" alt="image" src="https://github.com/user-attachments/assets/38e3a3e8-f966-423d-9ea4-7c4800af35b6" />
+<img width="1827" height="743" alt="image" src="https://github.com/user-attachments/assets/4ca85fc6-db8d-4bf8-9c30-9b7f864c9b44" />
 
 
 # Specific Implications
