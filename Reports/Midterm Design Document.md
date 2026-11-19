@@ -97,78 +97,127 @@ Beckhoff Automation offers an alternative to conventional PLC hardware through i
 
 The main advantage of this solution is its flexibility in combining machine control and software communication through a PC-based platform. However, it requires specialized hardware, software knowledge, and additional integration work when connecting existing equipment. Although Flexial's project focuses on PLC-based control, Beckhoff demonstrates that similar manufacturing integration can be achieved without relying exclusively on conventional PLC hardware.
 
-## Measures of Success
 
-Team 7 will evaluate the success of the Flexial PLC Programming and Process Controls project based on four main factors: **accuracy, reliability, usability and accessibility, and cost-effectiveness.** These factors will help determine how well the PLC systems perform, how easily operators can use them, and how effectively they can be implemented into Flexial's existing processes. The following sections outline the goals and requirements for each factor, along with the methods that will be used to test the system.
+# Measures of Success
+
+Team 7 will evaluate the success of the Flexial PLC Programming and Process Controls project based on four main factors: **accuracy, reliability, usability and accessibility, and cost-effectiveness.** These factors will help determine how well the PLC system performs, how easily operators can use it, and how effectively it can be implemented into Flexial's existing processes.
 
 ## Accuracy
 
-- The system's ability to correctly perform the required operations for each department.
-  - Each PLC shall be programmed using ladder logic to control the assigned process.
+- **The system's ability to correctly perform the required operations for each department.**
+  - The ControlLogix 5580 PLC shall be programmed using ladder logic to control the assigned processes.
   - All inputs and outputs (I/O) shall be identified and tested to ensure they respond correctly.
   - The PLC shall complete the required sequence of operations in the correct order without programming errors.
-- The system's ability to communicate with Flexial's existing software.
-  - The PLC shall be configured to communicate with Flexnet and Epicor using compatible communication methods.
-  - Information sent between the PLC and other systems shall be checked to ensure the correct data is being transferred.
+  - The PLC shall communicate with the Compact 5000 remote I/O to receive sensor readings and control connected equipment.
+
+- **The system's ability to accurately monitor tank conditions.**
+  - The system shall include 12 pH measurement points:
+    - Two chemical tanks with a nominal pH of 9.0 and a range of 9.0–12.0.
+    - Four water rinse tanks with a target pH of 7.0 ±0.1.
+    - Six acidic tanks with a pH range of 1.0–3.0, including four acid tanks, one Brite Dip tank, and one Citric tank.
+  - The selected pH sensors shall meet the proposed accuracy requirement of ±0.05–0.1 pH units, subject to verification.
+  - Six temperature sensors shall be used, including two in Cleaning and four in Passivation.
+  - Six concentration or titration measurements shall be included:
+    - Two Cleaning chemical measurements at 1–2%.
+    - One combined hydrofluoric/nitric acid measurement at F1.
+    - Three nitric acid measurements at F2, F3, and F4.
+  - Conductivity/TDS shall be monitored at R3.
+  - Sensors shall be selected based on accuracy, chemical compatibility, and compatibility with the PLC's 4–20 mA input system.
+  - The PLC shall identify readings outside the approved operating ranges and provide an appropriate warning or alarm.
+
+- **The system's ability to communicate with Flexial's existing software.**
+  - The PLC shall be configured to communicate with FlexNet and Epicor using compatible communication methods.
+  - Information transferred between the PLC and other systems shall be checked to ensure the correct data is received.
   - Each programmed process shall be tested multiple times to verify consistent operation.
 
 ## Reliability
 
-- The system's ability to operate safely and consistently during normal production.
+- **The system's ability to operate safely and consistently during normal production.**
   - The PLC shall be capable of operating for extended periods without unexpected interruptions caused by programming errors.
   - Safety features shall be included to prevent equipment from operating under unsafe conditions.
-  - The system shall recognize incorrect operating conditions and stop the process when necessary.
-- The system's ability to handle unexpected problems.
-  - The PLC shall respond safely to power loss, communication errors, and other possible faults.
+  - The system shall recognize incorrect operating conditions and respond according to the approved safety procedures.
+  - Each process shall successfully complete at least 20 consecutive test cycles without a programming-related failure.
+
+- **The system's ability to monitor process timing.**
+  - A process timing Add-On Instruction (AOI) shall be developed for each tank or oven requiring time monitoring.
+  - The AOI shall accept Set Time, Reset, Start, Warn Time, and Alarm Time as inputs.
+  - The AOI shall provide Total Run Time, Remaining Time, OK Status, Warn Status, and Alarm Status as outputs.
+  - All time values shall be represented in hours, minutes, and seconds.
+  - The system shall display the appropriate status when the configured warning or alarm time is reached.
+
+- **The system's ability to handle unexpected problems.**
+  - The PLC shall respond safely to power loss, communication errors, sensor failures, and other possible faults.
   - The system shall provide fault indicators to help operators identify problems.
-  - Each process shall successfully complete at least 20 consecutive cycles without a programming-related failure.
+  - Automatic chemical-handling operations shall require approved safety conditions before being performed.
+  - The system shall be tested to verify that it responds correctly to simulated fault conditions.
 
 ## Usability and Accessibility
 
-- The system's ability to be easily operated by Flexial employees.
+- **The system's ability to be easily operated by Flexial employees.**
   - A user interface shall be developed to allow operators to control and monitor the process.
   - The interface shall provide clear instructions to guide operators through each step.
+  - Operators shall be able to view current sensor readings, process status, remaining time, and active alarms.
   - The system shall include features that help reduce human errors during operation.
-- The system's ability to be maintained and modified when needed.
+
+- **The system's ability to track process information.**
+  - Operators shall be able to scan a part number before beginning a process.
+  - The system shall associate the part number with the recorded process information.
+  - Recorded information shall include relevant sensor readings, process times, and alarms.
+  - The required data storage period and retrieval method shall be confirmed with Flexial.
+
+- **The system's ability to be maintained and modified when needed.**
   - Team 7 shall provide documentation of the PLC programs, hardware requirements, and I/O connections.
   - PLC programs shall be organized to make troubleshooting and future changes easier.
   - The required hardware and software shall be identified so replacement components can be obtained when needed.
-- The system's ability to support employee training.
+
+- **The system's ability to support employee training.**
   - A training procedure shall be developed to explain how to operate the system.
   - Operators shall be able to follow the instructions provided through the user interface to complete the process.
 
 ## Cost-Effectiveness
 
-- The system's ability to provide an affordable solution for improving Flexial's production processes.
-  - Team 7 shall create a list of all hardware and software needed to implement the PLC systems.
+- **The system's ability to provide an affordable solution for improving Flexial's production processes.**
+  - Team 7 shall create a list of the hardware and software needed to implement the PLC system.
   - The total estimated cost of the equipment and implementation shall be documented.
+  - The proposed system shall be evaluated against Flexial's estimated project budget of $40,000–$50,000.
   - Existing equipment shall be used whenever possible to reduce additional expenses.
-  - A phased implementation plan shall be created to outline the expected costs and time required for each stage of the project.
+  - Three sensor options shall be researched for each required sensor application, comparing accuracy, 4–20 mA compatibility, cost, manufacturer, and purchasing source.
+  - A phased implementation plan shall outline the expected costs and time required for each stage of the project.
 
 ## Testing Methodology
 
 ### Accuracy
 
-- Each PLC program shall be tested to ensure the ladder logic performs the correct sequence of operations.
-- All inputs and outputs shall be individually checked for proper functionality.
-- Communication with Flexnet and Epicor shall be tested when the necessary connections are available.
+- Test each PLC program to ensure the ladder logic performs the correct sequence of operations.
+- Check all inputs and outputs individually for proper functionality.
+- Compare sensor readings with calibrated reference measurements to verify accuracy.
+- Test the pH monitoring system against the required ranges and accuracy specifications.
+- Simulate out-of-range sensor readings to verify that the correct warnings and alarms are displayed.
+- Test communication with FlexNet and Epicor when the necessary connections are available.
 
 ### Reliability
 
-- Each process shall be tested for at least 20 consecutive cycles to confirm consistent performance.
-- Safety features and fault detection shall be tested by introducing simulated errors.
-- The PLC shall be tested to verify that it responds appropriately to interruptions and unexpected conditions.
+- Test each process for at least 20 consecutive cycles without a programming-related failure.
+- Verify that the timing AOI correctly calculates total runtime and remaining time.
+- Test the AOI's OK, warning, and alarm outputs using configured time values.
+- Test fault detection by simulating sensor failures, communication interruptions, and other applicable errors.
+- Verify that the PLC responds according to the approved safety procedures.
 
 ### Usability
 
-- The user interface shall be tested to confirm operators can start, stop, and monitor the process.
-- The step-by-step training procedure shall be demonstrated to evaluate how easily an operator can follow the instructions.
-- Team 7 shall demonstrate how the PLC program can be adjusted or troubleshot when necessary.
+- Test the user interface to confirm operators can start, stop, and monitor the process.
+- Verify that sensor readings, process times, and alarms are displayed correctly.
+- Test barcode scanning to confirm that the correct part number is associated with recorded process data.
+- Demonstrate the training procedure to evaluate whether an operator can follow the instructions.
+- Demonstrate how the PLC program can be adjusted or troubleshot when necessary.
 
 ### Cost-Effectiveness
 
-- The implementation plan shall be reviewed to determine whether the proposed timeline and expenses are reasonable.
-- All required equipment and software costs shall be recorded and compared with the project's available budget.
+- Compare the estimated equipment and implementation costs with the available project budget.
+- Evaluate three sensor options for each required application based on accuracy, compatibility, price, and availability.
+- Review the phased implementation plan to determine whether the proposed timeline and expenses are reasonable.
+- Update the budget as final equipment selections and vendor pricing become available.
+
 
 ## Resources
 
