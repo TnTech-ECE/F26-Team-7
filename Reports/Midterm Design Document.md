@@ -219,49 +219,100 @@ Team 7 will evaluate the success of the Flexial PLC Programming and Process Cont
 - Update the budget as final equipment selections and vendor pricing become available.
 
 
-## Resources
+# Resources
 
-Team 7 will need different resources to complete the Flexial PLC Programming and Process Controls project. These include hardware, software, and help from Flexial employees. Since the project has three phases, some of the equipment and materials have not been decided on yet.
+Team 7 will need hardware, software, personnel, and documentation to complete the Flexial PLC Programming and Process Controls project. Flexial has provided the initial PLC architecture and sensor requirements. Since the project is divided into three phases, some equipment and responsibilities are still being determined.
 
 ## Hardware
 
-- **PLCs:** Used to control and automate the different processes.
-- **PLC Processor:** Runs the ladder logic programs and controls the system.
-- **Memory:** Stores the programs and system information.
-- **Power Supply:** Provides power to the PLC and other components.
-- **Temperature Sensors:** Four tank sensors and one oven sensor to monitor temperatures.
-- **TDS Sensors:** Four sensors to measure dissolved solids in the tanks.
-- **pH Sensors:** Four sensors to monitor pH levels.
-- **Concentration Sensors:** Four sensors to measure chemical concentrations.
-- **Input/Output Modules:** Connect the sensors and other equipment to the PLC.
+- **PLC:** Allen-Bradley ControlLogix 5580, used as the main controller for the system.
+- **Remote I/O:** Compact 5000 remote I/O, used to connect sensors and other equipment to the PLC.
+- **PLC Processor:** Executes the ladder logic programs and controls the assigned processes.
+- **Memory:** Stores PLC programs and system information.
+- **Power Supply:** Provides power to the PLC, remote I/O, and connected components.
+- **pH Sensors:** Twelve measurement points:
+  - Two chemical tanks with a nominal pH of 9.0 and a range of 9.0–12.0.
+  - Four water rinse tanks with a target pH of 7.0 ±0.1.
+  - Six acidic tanks with a pH range of 1.0–3.0, including four acid tanks, one Brite Dip tank, and one Citric tank.
+- **Temperature Sensors:** Six measurement points, including two in Cleaning and four in Passivation. Thermocouples in protective stainless-steel tubes or RTDs are being considered.
+- **Concentration/Titration Meters:** Six measurement applications:
+  - Two Cleaning chemical measurements at 1–2%.
+  - One combined hydrofluoric/nitric acid measurement at F1.
+  - Three nitric acid measurements at F2, F3, and F4.
+- **Conductivity/TDS Meter:** One measurement point at R3.
+- **Additional Measurement Equipment:** An oven dry sensor, passivation/pickling oxide film sensor, and before/after weight measurement equipment are being considered.
+- **Input/Output Modules:** Connect sensors, valves, indicators, and other equipment to the PLC.
+- **Control Panel and Wiring:** Includes the enclosure, terminal blocks, wiring, and other components needed to connect the system.
+
+## PLC I/O Requirements
+
+The current sensor requirements identify 25 measurement points:
+
+- 12 pH measurements.
+- 6 temperature measurements.
+- 6 concentration/titration measurements.
+- 1 conductivity/TDS measurement.
+
+Additional measurements may be required for the oven, oxide film, and before/after weight measurements.
+
+The final number of analog and digital I/O channels will be determined after the sensor types and signal interfaces are selected. The team will also consider approximately 20% additional I/O capacity for future expansion.
+
+The power supply requirements will be determined using the selected PLC hardware, instrumentation, and connected equipment.
+
+## Sensor Selection
+
+Team 7 will research three options for each required sensor application.
+
+Each option will be compared based on:
+
+- Measurement accuracy.
+- Compatibility with 4–20 mA PLC signals.
+- Cost.
+- Manufacturer or brand.
+- Purchasing source.
+- Compatibility with the chemicals and operating conditions.
+
+The final selections will be reviewed with Flexial before equipment is purchased.
 
 ## Software
 
-- **PLC Programming Software:** Used to write, test, and change ladder logic programs.
-- **Flexnet:** Software already used by Flexial that the PLC will need to communicate with.
-- **Epicor:** Another system used by Flexial that may need to communicate with the PLC.
-- **User Interface Software:** Allows employees to monitor and control the processes.
+- **PLC Programming Software:** Used to develop, test, and modify ladder logic programs and the required Add-On Instructions.
+- **FlexNet:** Flexial's existing software that the PLC system will need to communicate with.
+- **Epicor:** Flexial's existing system that may need to exchange process information with the PLC system.
+- **User Interface Software:** Allows operators to monitor sensor readings, process times, alarms, and equipment status.
 
 ## Personnel
 
-- **Team 7:** Responsible for researching, programming, testing, and documenting the project.
-- **Flexial Employees:** Help explain how the current equipment and processes work.
+- **Team 7:** Responsible for equipment research, proposed PLC programming, testing, and project documentation.
+- **Flexial Employees:** Provide information about existing equipment, manufacturing processes, and operating requirements.
 - **Project Supervisor:** Provides guidance and feedback throughout the project.
+- **Flexial Technical Personnel:** Assist with equipment selection, software integration requirements, and safety reviews.
+
+The final responsibilities for PLC programming, installation, and FlexNet/Epicor integration will be confirmed with Flexial, but are unknown at this time.
 
 ## Documentation
 
 - PLC programming manuals.
+- ControlLogix 5580 and Compact 5000 remote I/O documentation.
 - Sensor datasheets and equipment specifications.
-- Wiring diagrams.
-- Flexial's current process information.
+- Wiring diagrams and I/O connection lists.
+- Flexial's existing process information.
+- Process timing Add-On Instruction (AOI) documentation.
 - Project budget and timeline.
+- Testing procedures and results.
+
 
 ## Resource Availability
 
-Team 7 is working with Flexial to determine what equipment and software will be needed. The total project budget is estimated to be between **$40,000 and $50,000**. Since the project will be completed in three phases, the resource list and equipment costs will be updated as more information becomes available.
+Flexial has specified a ControlLogix 5580 PLC communicating with Compact 5000 remote I/O. The initial setup is estimated at approximately $22,000.
+
+The overall project budget is estimated to be between $40,000 and $50,000. Since the project is divided into three phases, equipment quantities and costs will be updated as additional requirements are confirmed with Flexial.
+
+Final sensor selections, I/O module quantities, and software integration responsibilities are still being determined.
 
 
-### Budget
+
+# Budget
 
 Team 7 has a total budget of approximately **$40,000–$50,000**. This budget is intended to provide Flexial with a fully assembled and working PLC system.
 
