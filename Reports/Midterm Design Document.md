@@ -460,17 +460,17 @@ The end result should present a comprehensive view of a well-defined system, del
 <img width="1776" height="1186" alt="image" src="https://github.com/user-attachments/assets/cec01598-f38d-4a80-8667-938ba793018f" />
 
 
-### Operational Flow Chart
-
-# PLC System Flowcharts
+# Operational Flow Chart
 
 ## Cleaning Subsystem
 
-<img width="1324" height="1334" alt="image" src="https://github.com/user-attachments/assets/b2076098-2e7e-467c-b52e-6f9411ee96f2" />
+<img width="2670" height="3092" alt="image" src="https://github.com/user-attachments/assets/b29b278e-1e26-407b-b4e0-da79d0d550b5" />
+
 
 ## Passivation Subsystem
 
-<img width="1614" height="1320" alt="image" src="https://github.com/user-attachments/assets/65a4be8e-332f-4415-95be-516fc2c62808" />
+<img width="3952" height="3130" alt="image" src="https://github.com/user-attachments/assets/086efbde-2df4-443a-8894-e00a3c8399c9" />
+
 
 ## Atomic Subsystem Specifications
 
