@@ -367,7 +367,9 @@ Together, Ron Scarlett and Mike Abell will provide the technical guidance necess
 
 ### Timeline
 
-<img width="1827" height="743" alt="image" src="https://github.com/user-attachments/assets/4ca85fc6-db8d-4bf8-9c30-9b7f864c9b44" />
+<img width="1829" height="799" alt="Gantt Chart Pict Part1" src="https://github.com/user-attachments/assets/667eb68b-e6f7-4dc6-8330-4f65df6df496" />
+<img width="1821" height="780" alt="Gantt Chart Pict Part2" src="https://github.com/user-attachments/assets/f1f88c24-b0cb-4156-a722-999948da7bca" />
+
 
 # Broader Implications
 The implementation of the PLC system at Flexial has implications that extend beyond improving manufacturing efficiency. One of the most significant impacts is the improvement of workplace safety. Employees involved in the cleaning and passivation processes may work around hazardous chemicals, including nitric acid and hydrofluoric acid. By automating portions of these processes, particularly liquid regulation through automated draining and filling valves, the system can reduce the need for employees to manually interact with certain equipment and chemical-handling operations. This can help reduce opportunities for accidental chemical exposure and improve overall working conditions.
