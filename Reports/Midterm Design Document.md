@@ -63,7 +63,7 @@ F3PC has consulted with the client and has developed preliminary specifications 
 - The system shall read the value of the flow sensor for tank 2 (Air-Blow tank) using a 4-20mA current loop output to receive the raw data and convert it to air flow in PSI.
 - The system shall read values from the sensors in tank 3 (city water rinse) using a 4-20mA current loop output to receive the raw data from the pH, TDS, water flow, and temperature to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids.
 - The system shall read values from the sensors in tank 4 (conductive rinse) using a 4-20mA current loop output to receive the raw data from the pH, conductivity, and TDS to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids in tank. 
-- The system shall ensure that the conductivity of tank 4 will remain under 20 µS/cm by reading the values from the conductivity sensor and comparing the found conductivity to the desired value.
+- The system shall ensure that the conductivity of tank 4 will remain under 30 µS/cm by reading the values from the conductivity sensor and comparing the found conductivity to the desired value.
 - The system shall read temperature of the drying ovens while a part is in them.
   
 ### Passivation Specifications:
