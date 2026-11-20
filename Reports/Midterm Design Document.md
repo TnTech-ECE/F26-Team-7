@@ -3,9 +3,6 @@
 
 ## Introduction
 
-Modern manufacturing processes require precise control, consistant operating conditions, and reliable monitering systems to maintain product quality and efficiency. These requirements are espescially important in industries such as aerospace and defence, where defects can have dire consequences. Flexial Corporation specializes in manufacturing precision metal bellows, accumulators, and flexible metal hose assemblies for aerospace, defense, and other industrial applications.
-The company also performs precision cleaning operations requiring strict cleanliness standards [1]. Maintaning consistent processing conditions throughout these operations is essential to producing reliable components that meet customer expectations.
-
 Modern manufacturing processes demand precise control, consistent operating conditions, and reliable monitoring systems to ensure product quality and operational efficiency. These requirements are particularly critical in sectors such as aerospace and defense, where manufacturing defects may result in severe consequences. Flexial Corporation manufactures precision metal bellows, accumulators, and flexible metal hose assemblies for aerospace, defense, and other industrial applications. The company also conducts precision cleaning operations for components that must meet stringent cleanliness standards [1]. Consistent processing conditions throughout these operations are essential for producing reliable components that fulfill customer requirements.
 
 To address challenges in monitoring and controlling manufacturing equipment, the senior design team is developing an automation system for Flexial based on a programmable logic controller (PLC). The proposed system will integrate chemical tank monitoring, temperature regulation, valve operation, and process identification within a centralized control framework. Utilizing industrial sensors, a PLC, and a human-machine interface (HMI), the system will provide operators with real-time access to process conditions and enable automated execution of selected operations. The project will also explore the integration of barcode scanning and manufacturing data collection to enhance traceability throughout the production process. These enhancements are intended to reduce manual intervention, improve process consistency, and increase manufacturing efficiency.
@@ -13,6 +10,10 @@ To address challenges in monitoring and controlling manufacturing equipment, the
 This proposal outlines the background of the manufacturing process and identifies the technical challenges associated with implementing an automated control system. A review of existing industrial automation solutions will evaluate available controllers, sensors, and communication technologies to inform the system design. Subsequently, the proposal will define system specifications and constraints, establish measurable success criteria, and detail the resources necessary for implementation, including equipment costs, personnel, and a project timeline. Finally, the proposal will address the specific benefits for Flexial and broader implications of industrial automation, such as safety considerations and professional engineering responsibilities.
 
 ## Formulating the Problem
+
+### Problem Statement
+
+Flexial Corporation's cleaning, pickling, and passivation operations require consistent monitoring of process conditions, accurate processing times, and reliable documentation to maintain product quality and traceability. Coordinating these requirements across multiple chemical tanks, sensors, and processing stations presents challenges in monitoring operating conditions, identifying deviations from established requirements, and maintaining accurate records for individual parts. A successful solution must track parts throughout their required processing steps, record relevant process measurements and cycle times, notify operators of abnormal conditions, and demonstrate reliable operation through at least 20 consecutive test cycles without a programming-related failure. 
 
 ### Background
 
@@ -28,9 +29,19 @@ The proposed system will incorporate a human-machine interface (HMI) to provide 
 
 Another critical consideration is the collection and management of manufacturing data. Identifying individual components or production batches is essential for maintaining accurate process records and ensuring product traceability. The proposed project will implement barcode scanning to identify parts or jobs and associate them with relevant manufacturing information. Additionally, the system will integrate with Flexial’s existing FlexNet and Epicor software platforms. Establishing communication between manufacturing equipment and these systems will reduce manual data entry and enhance access to production records.
 
-Developing a system with these capabilities presents challenges beyond those addressed by selecting a commercially available controller. The design must accommodate existing equipment, establish reliable communication among diverse instrumentation, and implement robust control logic. Each connected device must be evaluated to determine its electrical requirements, communication protocols, and compatibility with the proposed PLC. Furthermore, the system must address operational safety by implementing appropriate responses to equipment faults, abnormal process conditions, and operator commands.
+Developing a system with these capabilities presents challenges beyond those addressed by selecting a commercially available controller. The design must accommodate existing equipment, establish reliable communication among diverse instrumentation, and implement robust control logic. Each connected device must be evaluated to determine its electrical requirements, communication protocols, and compatibility with the proposed PLC. Furthermore, the system must address operational safety by implementing appropriate responses to equipment faults, abnormal process conditions, and operator commands. These challenges are interconnected because sensor compatibility and measurement accuracy influence PLC input requirements, while communication reliability and control logic determine how accurately process conditions can be monitored, recorded, and communicated to operators.
 
 Addressing these challenges necessitates a coordinated engineering effort encompassing industrial instrumentation, electrical circuit design, control systems, PLC programming, and software integration. The senior design team will investigate compatible technologies, develop the control architecture, implement the necessary interfaces, and verify system operation. By integrating these engineering disciplines, the project seeks to deliver a practical automation system that fulfills Flexial’s manufacturing requirements and accommodates future enhancements and expansion.
+
+### Stakeholders and Their Needs
+
+| Flexial Management | Consistent production quality and efficient operations |
+| --- | --- |
+| Machine operators | Clear process status, timers, and alarms |
+| Customers | Traceable process records, and accurate components |
+| Maintenance Technicians  | Accessible Diagnostics and replacable components |
+| IT personnel  | Secure integration with FlexNet and Epicor |
+| Safety personnel | Appropriate safeguards around chemical operations |
 
 ## Specifications and Constraints
 
@@ -375,7 +386,7 @@ James: Personal section, Survey of existing solutions section.
 
 George: Specifications, Constraints, Gantt Chart.
 
-Phillip: Introduction, Background.
+Phillip: Introduction, Background, Stakeholders, Problem Statement.
 
 Izaiah: Specific & Broader implications.
 
@@ -757,7 +768,7 @@ https://download.beckhoff.com/download/software/twincat/TwinCAT2/Solutions/PLC-C
 
 Each team member is required to make a meaningful contribution to the project proposal. In this section, each team member is required to document their individual contributions to the report. One team member may not record another member's contributions on their behalf. By submitting, the team certifies that each member's statement of contributions is accurate.
 
-Phillip: Introduction, Background, and Atomic Subsystems.
+Phillip: Introduction, Background, Stakeholders, Problem Statement, and Atomic Subsystems.
 
 Nate: Measure of Success, Budget, Resources, and Flowcharts.
 
