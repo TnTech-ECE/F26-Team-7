@@ -49,42 +49,41 @@ F3PC has consulted with the client and has developed preliminary specifications 
 
 ### Universal Specifications:
 
-- The system shall track when a part enters and exits a specific process by being scanned in and out using a barcode scanning system.
-- The system shall keep track of each step of a process a part was in and how long each part took. For example, it will keep track how long a part was in a tank before being moved to the next step of a process.
-- The system shall turn on a light above each tank or station when the required amount of time a part has to be in a specific step is met to notify when it is ready for the next step.
-- The system shall validate if a part has successfully met the requirements of each specific process it goes through (For example, before and after cleaing, then again for passivation). For cleaning, this is done by ensuring each part has been in each station for the required amount of time and that all the stations were set to the correct range. For passivation, this is done by measuring the thickness of the part before and after the process. If a part is found to not meet the standards when finished with a process, it is flagged as incomplete.
-- The system shall communicate the data read and converted from the sensors and PLC to the Flexnet and Epicor software to allow the data to be viewed remotely.
-- The system shall not allow remote users to manipulate or change the data found in any way, only allowing for a read-only view.
-- The system shall digitally store the data collected for a part and keep the data for a specific part together with its ID number for easy retreval.
-  
+- The system shall scan a part barcode upon entry and exit of each process, binding the part ID string to timestamped sensor and timer records stored for 7 to 10 years for the part's defense traceability requirements.
+- The system shall keep track of each step of a process a part was in and how long each part took. For example, it will keep track of how long a part was in a tank before moving on to the next step of a process.
+- The system shall track the amount of time a part is in each tank or oven with a resolution of 1 second and illuminate a 120 VAC stack light above the station within 0.5 seconds of reaching the required time.
+- The system shall automatically flag a part as PASS for cleaning only if the time a part is at all four cleaning stations meets the required minimum and all tank parameters remain within approved operating tolerances throughout the cycle. If a part is found to not meet the standards when finished with a process, it is flagged as incomplete.
+- The system shall have the part PASS for passivation only if the logged pre-process part thickness is 0.0005 in or more than the post-process thickness. If thickness reduction is below target, the HMI shall prompt a secondary rework immersion of up to 15 additional minutes before re-measuring and issuing a pass/fail flag.
+- The system shall validate process compliance by verifying that acid concentration, bath temperature, and immersion time remain within ASTM A967 / AMS 2700 limits, and shall log post-process verification test results (e.g., water immersion, high humidity, or copper sulfate test) entered by quality personnel
+- The system shall transmit part IDs, sensor telemetry, timestamps, and pass/fail flags to Flexial’s FlexNet and Epicor servers with less than 1 second of latency.
+- The system shall ensure remote browser/ERP clients are restricted to read-only access; no external network client shall have write permissions to PLC I/O tags, logic, or hardcoded pass/fail limits.
+- The system shall digitally store the data collected for a part and keep the data for a specific part together with its ID number for easy retrieval.
+
 ### Cleaning Process Specifications:
 
-- The system shall read values from the sensors in tank 1 (wash tank) using a 4-20mA current loop output to receive the raw data from the pH, concentration, Total Dissolved Solids (TDS), and temperature to be converted to the proper values.  A drain and fill valve will also be implemented to regulate liquids.
-- The system shall read the value of the flow sensor for tank 2 (Air-Blow tank) using a 4-20mA current loop output to receive the raw data and convert it to air flow in PSI.
-- The system shall read values from the sensors in tank 3 (city water rinse) using a 4-20mA current loop output to receive the raw data from the pH, TDS, water flow, and temperature to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids.
-- The system shall read values from the sensors in tank 4 (conductive rinse) using a 4-20mA current loop output to receive the raw data from the pH, conductivity, and TDS to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids in tank. 
-- The system shall ensure that the conductivity of tank 4 will remain under 30 µS/cm by reading the values from the conductivity sensor and comparing the found conductivity to the desired value.
-- The system shall read temperature of the drying ovens while a part is in them.
-  
+- The system shall acquire temperature (125–130 °F, control accuracy ±1 °F via actuated valves), chemical concentration (1.0–2.0%, target 1.5%), and pH (9.0–12.0 pH, accuracy ±0.5 pH), enforcing a 30-minute step timer. For tank 1.
+- The system shall acquire a 4–20 mA airflow sensor signal and scale it to volumetric flow in SCFM (25 SCFM, accuracy ±2% FS) and basket presence, and enforce the 30-minute step timer for tank 2.
+- The system shall acquire 4–20 mA signals for pH (7.0 ± 0.1 pH), TDS, water flow, and temperature (125-130 F), and control discrete fill/drain valves for tank 3.
+- The system shall acquire 4–20 mA signals for pH (7.0 ± 0.1 pH), TDS, and conductivity (µS/cm), triggering an operator alarm if conductivity exceeds 30 µS/cm, a warning message when at or above 30 µS/cm, and good when 6-7 µS/cm for tank 4.
+- The system shall continuously monitor oven air temperature at 225 F and integrate an oven moisture sensor (or log manual post-oven moisture/cleanliness checks on 1–2 sampled parts per batch).
+
 ### Passivation Specifications:
 
-- The system shall read values from the sensors in tanks 1, 2, and 3 (Nitric acid tanks) using a 4-20mA current loop output to receive the raw data from the pH, Temperature, TDS, and Concentration independently to be converted to the proper values. A drain and fill valve will also be implemented to regulate liquids in tank. 
-- The system shall read values from the sensors in the pickling tank (Nitric acid/Hydrofluoric acid mix) using a 4-20mA current loop output to receive the raw data from the Temperature, TDS, and Concentration to be converted to the proper values.
-- The system may be able to read the difference in concentration of the Nitric acid and the Hydroflouric acid in the pickling tank by reading the values from two concentration sensors using a 4-20mA current output.
-- The system shall read values from the sensors in the two immersion tanks using a 4-20mA current loop output to receive the raw data from the TDS, Temperature, Concentration, and pH independently to be converted to the proper values.
-- The system shall read the value of the water flow sensor of the hose in the manual rinse tank and use its 4-20mA current loop output to convert the value to percent output.
-  
+- The system shall monitor bath temperature (140–160 °F) and track dual-acid concentration targeting 10.0% Nitric Acid (HNO₃) and 4.8% Hydrofluoric Acid (HF) (balance water) using HF-compatible (PFA/PTFE-wetted) concentration/titration instrumentation, enforcing a 15-minute initial dwell (plus up to 15-minute conditional rework) for tank F1.
+- The system shall monitor nitric acid concentration (20–35% v/v) and temperature (120–130 F) for tank F2.
+- The system shall monitor nitric acid concentration (25–45% v/v) and temperature (120-135 F) for tank F3.
+- The system shall monitor nitric acid concentration (35-55% v/v) and temperature (120-140 F) for tank F4.
+- The system shall monitor water temperature (125-130 F) for tanks R2 and R3, pH (7.0 ± 0.5) for tanks R2 and R3, and TDS for tank R3.
+
 ### Constraints:
 
- - The system shall use sensors that have a 4-20 mA current loopp output, which will be converted into a digital output that can be read by the PLC
-- The system shall be able to have physical and electrical parts that can be replaced if sensors, probes, or other mechanisms are damaged or unresponsive.
-- The system shall be modular in design such that the system logic, hardware, data mapping, and all other design choices allow for additional steps and processes of the part fabrication process to be added to the system, such as heat treating and welding. This requires the PLC to have enough CPU to ensure that there will be enough room for the whole process and that all connections are made such that more connections can be added later.
-- The system shall follow the standard IEC 61131-3 for PLC programming. This standard ensures that data from 4-20mA sensors are stored as REAL data types and that the PLC code is modular with each step and process having isolated architecture [4].
-- The system shall follow the standards IEC 62443-3-3 and 62443-4-2 for cybersecurity. These standards ensure that the physical PLC, HMI, and sensors are in controlled security zones, that the remote viewing server is in a DMZ zone, and that communication from the viewer and the PLC goes through a firewall before communicating [5].
-- The system shall follow the standard NFPA 496 for physical PLC safety. This standard ensures that the electronic panel has a vapor seal to protect it from acidic gases and liquids, that a mechanical air-purge regulator keeps it dry and clean, and that a pressure-differential sensor alerts when water is detercted in the cabinet.
-- The system shall follow the standards NEC Article 430 & Article 500 for electrical safety. These standards ensures that grounded steel barries separate the 4-20mA sensor terminal blocks from the 120 VAC high-voltage and that all input and output hardware is protected by running all components through isolated interposing relays with RC snubber circuits to suppress voltage spikes.
-- This system shall follow the standards ASTM A967 / AMS 2700  for passivation. These standards ensure that the PLC data or logic cannot be overwritten by operators or supervisors by hardcoding pass and fail calculations into the PLC memory as non-volatile constants and that the data setting process completion to true cannot be pushed to Flexnet or Epicor until the data is confirmed by the endpoints and calculations.
-
+- The system shall ensure that field sensors connect via 4–20 mA DC loops (with 3.6 mA to 20.5 mA fault detection) or native Ethernet/IP where supported by the ControlLogix 5580 / Compact 5000 architecture.
+- The system shall ensure that all sensors, probes, and interposing relays shall use quick-disconnect terminals/fittings for rapid replacement for modularity and maintainability. The PLC and remote I/O racks shall retain at least 20% spare memory and I/O channel capacity to accommodate future expansion
+- The system shall follow the standard IEC 61131-3 for PLC programming. This standard ensures that control logic shall be structured into modular, reusable Add-On Instructions (AOIs) for step timers (10-min, 15-min, and 30-min presets) and isolated program routines per process line in accordance with IEC 61131-3 [4].
+- The system shall follow the standards IEC 62443-3-3 and 62443-4-2 for cybersecurity. These standards ensure that the PLC, Compact 5000 I/O, Ethernet/IP sensors, and local HMI shall reside in an isolated OT control zone separated from Flexial’s enterprise network (FlexNet/Epicor) by an industrial firewall and DMZ, enforcing read-only external access [5].
+- The system shall follow the standards NEMA 250 / UL 508A for physical PLC safety. Since the panel operates near nitric and hydrofluoric acid vapors, the control enclosure shall be rated NEMA 250 Type 4X (corrosion-resistant) and constructed per UL 508A and NEC Article 409.
+- The system shall follow the standards of NEC Article 409, OSHA 29 CFR 1910.1200 & 1910.147 for electrical safety. These standards ensure that there will be grounded physical barriers that separate 120 VAC wiring from 24 VDC / 4–20 mA circuits. Automated acid valves shall fail-closed on power loss, require high-level switch interlocks and HMI operator confirmation before draining/reconcentrating, and include physical Lockout/Tagout (LOTO) disconnects per 29 CFR 1910.147 and chemical hazard labeling per 29 CFR 1910.1200.
+- This system shall follow the standards ASTM A967 / AMS 2700 for passivation. These standards ensure that the passivation bath temperature, concentration, and immersion timers are enforced against ASTM A967 / AMS 2700 limits, with pass/fail thresholds stored in protected controller memory so operators cannot alter acceptance criteria.
 
 ## Survey of Existing Solutions           
 
@@ -370,13 +369,70 @@ Together, Ron Scarlett and Mike Abell will provide the technical guidance necess
 
 <img width="1827" height="743" alt="image" src="https://github.com/user-attachments/assets/4ca85fc6-db8d-4bf8-9c30-9b7f864c9b44" />
 
+# Broader Implications
+The implementation of the PLC system at Flexial has implications that extend beyond improving manufacturing efficiency. One of the most significant impacts is the improvement of workplace safety. Employees involved in the cleaning and passivation processes may work around hazardous chemicals, including nitric acid and hydrofluoric acid. By automating portions of these processes, particularly liquid regulation through automated draining and filling valves, the system can reduce the need for employees to manually interact with certain equipment and chemical-handling operations. This can help reduce opportunities for accidental chemical exposure and improve overall working conditions.
+
+Environmental sustainability is another important consideration. Flexial's cleaning and passivation processes require careful monitoring of chemical concentrations, water conditions, and processing times. Inconsistent conditions can result in parts requiring additional processing or being rejected. By continuously monitoring these conditions and maintaining records of each part's processing history, the PLC system can help identify inconsistencies earlier and reduce unnecessary material waste. Reducing rejected parts and unnecessary chemical or water replacement can also help decrease the environmental impact associated with manufacturing.
+
+The project also has economic and social implications for Flexial and its employees. Automating repetitive monitoring and control operations can improve production consistency, reduce manual workload, and allow employees to focus on equipment supervision, quality assurance, and other responsibilities. However, introducing automation may also change the responsibilities of existing employees and potentially reduce the need for certain manual positions. Flexial should consider providing employees with opportunities for additional training so they can transition into positions involving automated equipment operation, troubleshooting, and maintenance.
+
+Another broader consideration is the importance of reliable manufacturing within the aerospace and defense industries. Components produced by Flexial may be used in applications where quality and reliability are critical. Improving the consistency of cleaning and passivation processes can help support the quality expectations of these industries. The proposed barcode tracking system and centralized PLC monitoring will also allow processing information to be associated with individual parts, improving traceability and making it easier to identify where inconsistencies occur.
+
+Overall, the project has the potential to provide benefits beyond production speed. Improving employee safety, reducing material waste, maintaining manufacturing quality, and supporting employee development are all important factors that should be considered when introducing industrial automation.
 
 # Specific Implications
 
-## **Ethical, Professional, and Standards Considerations**
+The proposed PLC system introduces several specific considerations related to Flexial's existing manufacturing operations. The system will monitor cleaning and passivation tanks, collect sensor readings, control selected draining and filling operations, and track individual parts through the manufacturing process using barcode identification. These functions introduce responsibilities involving employee safety, process reliability, data integrity, and cybersecurity.
 
-There are a multitude of reasons for the PLC to be put into place within the company. There are many workers that interact with dangerous chemicals and potential hazards, the automation of the process will provide a safer work environment for employees. The PLC will also have the intention in reducing errors that can be made by people, making sure that everything that interacts with it is consistent. A better consistency will also allow for more money to be saved by having less product incorrectly handled, resulting in less waste. The speed of the process should also be faster, having a machine that can process more materials than the average worker can handle with the same quality.
-A broader implication that can be taken from this machine is the fact that reducing waste also helps lessen pollution being added to the environment. If parts are constantly being thrown away then that creates more of a possibility that it affects the environment. There are also workers that are spared from the risk of injury and this not only protects the workers, but also protects the company from dealing with any kind of legal trouble, within proper use of the machine. It is possible that the automation of these processes may remove some of the available jobs for current workers, but it also opens the possibility of them learning to handle machinery or be moved into an arguably better position. Every project also has to consider what happens if anything within the machine fails, this risk should be mitigated by having failsafes that will remove/ contain anything that could harm a worker.
+One of the primary concerns is the safety of employees working around the cleaning and passivation equipment. The passivation process involves nitric acid tanks and a pickling tank containing a nitric acid and hydrofluoric acid mixture. Since these chemicals present potential health hazards, the automated monitoring and liquid-control functions must operate reliably. The system should provide appropriate fault detection and ensure that abnormal sensor readings or equipment failures do not result in unsafe automated operation. Emergency shutdown capabilities and appropriate physical safety systems must also be considered. These design considerations are intended to reduce the risks associated with chemical handling and automated equipment.
+
+To prevent equipment failures or incorrect sensor readings from resulting in unsafe operations, the system should incorporate several safety interlocks. Tank level switches should detect high and low liquid levels to prevent overfilling or excessive draining. Valve position feedback should also be incorporated where applicable so the PLC can verify that a valve has reached its commanded position. If a valve fails to respond, a sensor provides an abnormal reading, or an unsafe tank condition is detected, the PLC should stop the affected operation and notify the operator through the HMI. An emergency stop (E-stop) should also be provided to interrupt automated operations and initiate the predetermined safe condition.
+
+Power loss must also be considered when determining how the valves operate. As a preliminary design requirement, the fill and drain valves should transition to their fail-safe positions when electrical power is lost. Closing these valves is a proposed approach to prevent unintended chemical movement or discharge during a power interruption. However, the final fail-safe position of each valve must be evaluated based on the specific tank, chemical, and piping arrangement to ensure that closing the valve does not create another hazard. Following a power interruption, the system should remain in a stopped condition rather than automatically resuming chemical-handling operations. An operator should verify that the equipment is safe before authorizing the process to restart. These protections are intended to prevent a single equipment failure, incorrect sensor reading, or control-system error from resulting in an uncontrolled chemical-handling operation.
+
+Another important consideration is the accuracy and integrity of manufacturing records. Flexial produces components for aerospace and defense applications, making reliable process documentation particularly important. The proposed system will associate collected sensor readings and processing information with individual parts through barcode identification. This information can help establish whether parts have completed the required processing steps and provide a record of the conditions under which they were processed. Unauthorized modification of this information could compromise traceability and quality assurance. To address this concern, the design includes a read-only remote viewing requirement. Remote users will be able to view PLC information through the proposed FlexNet and Epicor integration without being permitted to manipulate the PLC data or modify its operation through that remote connection. The proposed network architecture also includes a DMZ and firewall to help protect communication between the remote viewing system and the PLC.
+
+The design and implementation of the PLC system must follow appropriate ethical and professional engineering practices. The IEEE Code of Ethics emphasizes the responsibility of engineers to protect public safety, health, and welfare while maintaining honesty, integrity, and professional accountability. These principles are directly relevant to Flexial because the system will operate around hazardous chemicals and equipment while collecting information used to monitor manufacturing processes. The system must be designed and tested responsibly, and any known limitations or potential safety concerns should be communicated rather than overlooked.
+
+Several safety standards are relevant to the proposed system. OSHA 29 CFR 1910.1200, the Hazard Communication Standard, addresses the communication of chemical hazards through appropriate labeling, safety data sheets, and employee training. This is particularly important at Flexial because employees work around nitric acid and hydrofluoric acid during manufacturing operations. OSHA 29 CFR 1910.147, the Control of Hazardous Energy Standard, addresses lockout/tagout procedures when employees perform maintenance or servicing on equipment. Since the PLC will automatically control selected valves and equipment, maintenance personnel must be able to properly isolate hazardous energy and prevent unexpected equipment activation. PLC programming alone does not replace the physical isolation procedures required for maintenance.
+
+The project also incorporates IEC 62443-3-3 and IEC 62443-4-2 as part of its cybersecurity considerations. These standards inform the proposed separation of system components into security zones, the use of a DMZ for remote viewing, and the placement of a firewall between the remote viewing system and the PLC network. These measures support the read-only requirement by restricting remote access and helping prevent unauthorized changes to PLC operations.
+
+Additional electrical and equipment considerations are addressed through NEC Articles 430 and 500 and NFPA 496, as identified in the original design proposal. These standards inform the proposed electrical protection, separation of signal and power wiring, and protection of the PLC enclosure from potentially harmful environmental conditions. IEC 61131-3 will also guide the organization and programming of the PLC logic to support consistent and maintainable control operations.
+
+To ensure these ethical and safety considerations are addressed throughout development, the team should test the system for sensor faults, communication interruptions, unexpected shutdowns, and incorrect operating conditions before implementation. Safety-related functions and physical energy-isolation procedures must also be reviewed with Flexial personnel responsible for equipment safety and maintenance. The team should document testing results honestly and identify any remaining limitations.
+
+Ultimately, the goal of the project is not simply to increase manufacturing efficiency, but to develop a reliable automation system that considers the safety of employees, the accuracy of manufacturing records, and the long-term responsibilities associated with industrial automation.
+
+### Standards Application and Verification
+
+The following verification matrix identifies the applicable standards and company procedures, explains how they affect the proposed PLC system, and establishes methods for verifying the associated design requirements.
+
+All verification activities are currently planned. Actual test results and final acceptance will be documented during development and testing.
+
+| Test ID | Standard or Procedure | Design Requirement | Verification Method | Acceptance Criteria | Status |
+| --- | --- | --- | --- | --- | --- |
+| **T-01** | IEC 61131-3 — PLC Programming Languages | The ControlLogix 5580 shall use supported PLC programming languages. Modular routines and Add-On Instructions (AOIs) shall implement process timing, alarms, and reusable control functions. | Compile the program in Studio 5000 and simulate timer start, reset, warning, alarm, and completion functions. | No compilation errors. All defined functions operate correctly using the approved timer settings. | Planned |
+| **T-02** | IEC 62443-3-3 — Industrial Cybersecurity, SR 2.1 | Unauthorized users shall not be permitted to modify PLC operating parameters through remote monitoring systems. | Attempt unauthorized PLC variable modifications through the permitted remote-access paths in an isolated test environment. | Unauthorized write attempts are rejected while authorized monitoring remains functional. | Planned |
+| **T-03** | IEC 62443-3-3 — Network Segmentation, SR 5.1 | The PLC, remote I/O, and HMI shall operate within a defined control-network security zone, separated from enterprise networks by controlled communication boundaries. | Review network architecture and firewall configurations. Test permitted and prohibited network connections. | Only documented and authorized network communications are permitted. | Planned |
+| **T-04** | IEC 62443-4-2 — Component Security Requirements | Selected network-connected equipment shall provide security capabilities appropriate to the control architecture. | Review manufacturer documentation for PLC, HMI, gateway, and network equipment authentication and access-control capabilities. | Required component security functions are supported or compensating controls are documented and approved. | Planned |
+| **T-05** | NEMA 250 — Type 4X Enclosures | The control cabinet shall provide the specified environmental protection, including corrosion-resistant enclosure construction suitable for the installation. | Inspect enclosure ratings, manufacturer specifications, materials, cable entries, and sealing arrangements. | The enclosure has a documented Type 4X classification, installation details maintain the intended protection, and chemical compatibility is confirmed separately. | Planned |
+| **T-06** | UL 508A — Industrial Control Panels | Any new industrial control panel within the project scope shall be designed and constructed according to applicable panel requirements, including appropriate electrical protection and short-circuit current rating. | Review electrical drawings, component ratings, protective devices, and short-circuit current rating calculations with qualified personnel. | The documented panel SCCR is adequate for the available fault current, and no unresolved deficiencies remain in the applicable inspection checklist. | Planned |
+| **T-07** | NFPA 70 (NEC) — Article 409 | Industrial control panel wiring, component selection, electrical protection, and identification shall satisfy the applicable installation requirements. | Inspect electrical schematics and panel specifications against the locally adopted NEC requirements. | Applicable electrical requirements are satisfied and reviewed by qualified Flexial personnel. | Planned |
+| **T-08** | OSHA 29 CFR 1910.147 — Lockout/Tagout | Maintenance personnel shall be able to isolate electrical, pneumatic, and other hazardous energy sources. PLC and HMI commands shall not replace physical hazardous-energy isolation. | Review hazardous-energy isolation procedures, disconnect locations, and methods of verifying isolation. | All relevant hazardous-energy sources have documented isolation and verification procedures approved by Flexial safety personnel. | Planned |
+| **T-09** | OSHA 29 CFR 1910.1200 — Hazard Communication | Operators and maintenance personnel shall have access to appropriate chemical hazard information, safety data sheets, labels, and required training. | Review the chemical inventory, SDS availability, equipment labels, and Flexial employee training documentation. | Required chemical hazard information, labeling, and training procedures are documented and available to affected personnel. | Planned |
+| **T-10** | ASTM A967/A967M — Chemical Passivation Treatments | The PLC shall monitor and record applicable process conditions according to approved passivation requirements and identify deviations from the selected processing recipe. | Simulate acceptable and unacceptable bath conditions. Verify PLC alarms and recorded data. Confirm that actual part acceptance follows Flexial's approved quality procedures. | All simulated deviations are identified and recorded correctly. Part acceptance is determined by the approved inspection procedure. | Planned |
+| **T-11** | SAE AMS2700 — Passivation of Corrosion-Resistant Steels | The PLC shall associate approved passivation requirements, including applicable concentration, temperature, immersion time, and processing records, with the correct part or job traveler. | Test recipe selection and simulate process conditions outside the approved limits. Review recorded process information. | Correct recipes are associated with the proper parts, out-of-range conditions are detected, and required inspection records are maintained. | Planned |
+| **T-12** | Flexial API98008, Rev. AE — Cleaning Process | Cleaning Tank 4 conductivity shall remain below 30 µS/cm. The PLC shall notify the operator when the conductivity fails this requirement. | Simulate conductivity inputs corresponding to 29.9 µS/cm and 30.0 µS/cm. Observe PLC alarms and HMI indications. | No upper-limit alarm at 29.9 µS/cm. Alarm activates at 30.0 µS/cm and the event is correctly recorded. | Planned |
+| **T-13** | Flexial API06002, Rev. T — Passivation Process | Passivation recipes shall follow applicable tank-specific requirements. For example, the documented Tank F2 process lists 20–25% nitric acid by volume, 120–140°F, and 25–30 minutes. | Load an approved Tank F2 recipe and simulate process measurements and timer operation inside and outside the accepted limits. Verify alarm behavior and process records. | The PLC correctly applies the approved recipe, identifies deviations, and records process conditions. Actual part acceptance follows the applicable Flexial verification procedures. | Planned |
+
+**Verification documentation:** Each completed test will include a test identifier, date, hardware/software revision, testing conditions, observed results, pass/fail determination, and responsible reviewer.
+
+**Standards applicability:** The exact editions and provisions applicable to the installation will be confirmed with Flexial. The proposed verification procedures evaluate selected requirements and do not independently establish full standards compliance or third-party certification. UL 508A, NEC Article 409, and the stated panel inspection requirements apply to panel work within the agreed project scope.
+
+**Process verification:** PLC monitoring verifies that recorded process conditions meet configured requirements. It does not replace Flexial's physical part-inspection and corrosion-resistance verification procedures.
+
+**Current status:** All verification procedures remain planned until testing is performed and documented.
 
 ## Statement of Contributions
 
@@ -397,14 +453,58 @@ Nate: Measure of Success, Budget, Resources.
 
 # Conceptual Design
 
-
 ## High-Level Solution
 
 Team 7 plans to develop a PLC-based monitoring and control system for Flexial's cleaning and passivation processes. The system will use sensors, a PLC, and a user interface to monitor tank conditions, record data, and improve process efficiency. The system will also track parts using barcode scanning and communicate with Flexial's existing software.
 
-#### Proposed Design:
+| Evaluation criterion | Weight | A: Centralized I/O | B: Remote I/O | C: Multiple PLCs |
+| --- | --- | --- | --- | --- |
+| Flexial hardware compatibility | 30% | 5 | 5 | 3 |
+| Reliability and control coordination | 25% | 4 | 4 | 3 |
+| Scalability and expansion | 15% | 2 | 5 | 5 |
+| Installation complexity | 10% | 4 | 3 | 2 |
+| Estimated cost efficiency | 10% | 4 | 3 | 2 |
+| Maintenance and troubleshooting | 10% | 3 | 4 | 2 |
+| **Weighted total / 100** | **100%** | **78** | **85** | **60** |
+
+A ControlLogix PLC with remote I/O offers centralized sequencing and data handling while supporting I/O placement near the cleaning and passivation equipment. It also offers a practical expansion path as additional stations are incorporated. This is also the architecture Flexial wants to implement. 
+
+Centralized I/O remains a reasonable alternative for a compact installation, but would likely require more field wiring. Multiple PLCs provide separation between processing areas, but add communication, coordination, and maintenance complexity. 
+
+| Evaluation criterion | Weight | Industrial gateway | Direct PLC interface | Custom database bridge |
+| --- | --- | --- | --- | --- |
+| Cybersecurity and access control | 25% | 5 | 3 | 2 |
+| FlexNet/Epicor compatibility* | 25% | 4 | 3 | 3 |
+| Reliability | 20% | 4 | 4 | 2 |
+| Implementation simplicity | 15% | 3 | 4 | 2 |
+| Cost efficiency | 10% | 2 | 5 | 4 |
+| Maintainability | 5% | 4 | 3 | 2 |
+| **Weighted total / 100** | **100%** | **78** | **71** | **49** |
+
+An industrial communication gateway is the provisional preferred option because it can separate the PLC control network from higher-level data consumers. A possible architecture would be a PLC-to-gateway connection using EtherNet/IP, with the gateway forwarding approved production information through an interface supported by FlexNet/Epicor.
+
+The exact data protocol cannot be selected until Flexial confirms what its systems accept. Remote viewers should remain read-only, while any authorized production-data exchange must be defined separately.
+
+#### Proposed Design
 
 The project will be divided into five main subsystems: cleaning sensors, passivation sensors, PLC hardware, barcode scanning, and Flexnet/Epicor communication. These subsystems will work together to collect, display, and store process information.
+
+| Interface | Signal or protocol | Status |
+| --- | --- | --- |
+| Chemical sensors → Remote I/O | 4–20 mA analog | Specified |
+| Compact 5000 Remote I/O → ControlLogix 5580 | EtherNet/IP | Expected architecture; verify configuration |
+| PLC → HMI | Network communication; protocol TBD | Pending |
+| Barcode scanner → PLC | Scanner interface and data format TBD | Pending |
+| PLC → FlexNet/Epicor | Protocol and integration method TBD | Pending Flexial IT |
+| PLC → Valves and indicator lights | Digital outputs; electrical ratings TBD | Partially defined |
+
+The proposed system utilizes an Allen-Bradley ControlLogix 5580 PLC with Compact 5000 remote I/O, as specified by Flexial. Industrial sensors will transmit process measurements through analog input channels, while digital I/O will support equipment status monitoring and control of valves and indicator lights.
+
+The PLC will process incoming measurements, execute process timing and control logic, and provide operating conditions, alarms, and process status information to the human-machine interface (HMI). Barcode identification will be used to associate individual parts with their processing steps and recorded measurements.
+
+Communication between the PLC system and Flexial's existing FlexNet and Epicor platforms remains under evaluation. The integration method, supported communication protocols, data formats, and required interfaces will be determined in coordination with Flexial's IT and engineering personnel.
+
+The system is intended to support authorized production data exchange while preventing unauthorized remote modification of PLC operating parameters. The final communication architecture will distinguish between process-data reporting, remote monitoring, and any approved bidirectional exchanges.
 
 #### Cleaning Subsystem:
 
@@ -416,7 +516,7 @@ The operator will start and stop the cleaning process through the interface. Dur
 
 The passivation subsystem will monitor temperature, pH, TDS, concentration, water flow, and thickness measurements.
 
-The operator will start and stop the passivation process through the interface. The PLC will also automatically control draining and reconcentration when needed. This will help maintain the required chemical conditions and reduce manual adjustments.
+The operator will start and stop the passivation process through the interface. The PLC will also automatically control draining and reconcentrating when needed. This will help maintain the required chemical conditions and reduce manual adjustments.
 
 #### PLC and User Interface:
 
@@ -735,9 +835,11 @@ The budget will be updated as final equipment selections and vendor quotes becom
 
 -Izaiah Townsend
 
+## Engineering Calculations
+
+<img width="1778" height="778" alt="image" src="https://github.com/user-attachments/assets/75089796-0364-43d7-8275-fbe36608fed7" />
 
 ## References
-
 
 [1] Flexial Corporation, "Operations and Capabilities." [Online]. Available: https://flexial.com/capabilities/
 
@@ -763,6 +865,12 @@ https://www.beckhoff.com/en-us/products/automation/twincat/tcxxxx-twincat-3-base
 
 [10] Beckhoff Automation, “TwinCAT OPC UA to Integrate the Shop Floor with the Top Floor,” technical demonstration, Beckhoff Automation. [Online]. Available:
 https://download.beckhoff.com/download/software/twincat/TwinCAT2/Solutions/PLC-ConnectedTo-SAP/OPC-UA-SAP-Beckhoff-v2.pdf
+
+[11] Rockwell Automation, *FactoryTalk Transaction Manager User Guide*, ver. 14.00.00, publication FTTM-UM001B-EN-E, Oct. 2023. [Online]. Available: https://literature.rockwellautomation.com/idc/groups/literature/documents/um/fttm-um001_-en-e.pdf. 
+
+[12] Siemens, “OT to MES Integration with Industrial Edge and Opcenter.” [Online]. Available: https://www.siemens.com/en-us/content/architecture-hub/op-center/. 
+
+[13] Siemens, “Opcenter Connect.” [Online]. Available: https://www.siemens.com/en-us/products/opcenter/connect/.
 
 ## Statement of Contributions
 
